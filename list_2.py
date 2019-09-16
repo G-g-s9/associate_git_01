@@ -63,23 +63,28 @@ print('\n\n\
 ')
 current_users = \
                 [ '11号','21号','13号',\
-                'ad','404DAXIE号','25号']    # 假设库列表
+                'aD','404DAXIE号','25号']    # 假设库列表
                 
 # 建立一个小写列表副本，用来查重用(变量名有待优化）
-current_users_copy = current_users
+current_users_copy = current_users[:]   # 注意用切片复制，不然就只是关联两个
 copy_number_flag = len(current_users)-1
-for tmp in current_users:
-    current_users[copy_number_flag] = current_users[copy_number_flag].lower()
+for tmp in current_users_copy:
+    current_users_copy[copy_number_flag] = current_users_copy\
+    [copy_number_flag].lower()
     copy_number_flag = copy_number_flag-1
 print(current_users_copy)
 
 # 👇录入新名查重
 new_users = [ '11号','49','88', 'Ad','66','2']
 for user in new_users:
-    if user.lower() in current_users:
+    if user.lower() in current_users_copy:
         print('提示： '+user+' 重名，请重命名\n\tPlease rename!')
     else:
         print(user+'\t可使用')
+        
+# ~ print('\n\n\n',current_users)   # 人工对照用，默认注释化
+# ~ print('\n\n\n',current_users_copy)
+# ~ print('\n\n\n',new_users)
 
 
 
