@@ -123,12 +123,18 @@ else:
 
 ********	全角占两个字节，半角占一个字节。半角全角主要是针对标点符号来说的，全角标点占两个字节，半角占一个字节，而不管是半角还是全角，汉字都还是要占两个字节
 
+字典dictionary
+字典名 = {'键名1':值,'键名2':值,'键名3':值}	键名字符串，值类型多样可取（数字、字符串、列表乃至字典），键值对数量不限（理论上）
+字典名['键名'] = 值	添加修改键值对类似列表，但没有方法而是直接复制加入，删除用del语句
+.items	#方法；键-值 对列表（用于遍历字典内容）
+.key()	#方法；单独针对键（for循环时，可写可不写，默认单参就是键），返回的是键的列表
+.values()	#方法；返回的是值的列表
+set()	#函数；集合——输出元素独一无二的列表
 
 
+#*#**#*#*#*	内置函数【完整】	*#*#*#*#*#*#
 
-#*#**#*#*#*	完整	*#*#*#*#*#*#
-
-print(*objects, sep='  ', end='\n', file=sys.stdout, flush=False)
+print(*objects, sep='  ', end='\n', file=sys.stdout, flush=False)	# sep分隔符；end结束；file输出格式；flush缓存
 
 
 
@@ -234,6 +240,7 @@ F5		运行
 git add -A  提交所有变化至暂存
 git add -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)，至暂存
 git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件，至暂存
+git reset --mixed	撤销前一步的暂存
 git status	显示当前状态（如有无变更及需要提交更新的）
 git commit -m "string"	提交变更，-m是添加后缀的备注信息用的；另，可结合上面的add成git commit -am “备注说明”
 git log  <--pretty=oneline>	查看提交历史。加后面的标志就只显示最重要的ID和备注
@@ -244,6 +251,9 @@ git checkout -b <新分支名>		新建分支（一般配合检出实验性修改
 git reset --hard <引用ID前6>		确定跳转到某一提交状态（该状态后的就没了）
 rm -rf .git			删除整个库.git（只是提交的快照没了，不影响当前状态。在 Windows 系统中，应使用命令 rmdir /s .git ）
 
+git update-index --no-assume-unchanged /path/to/file	#git 取消忽略；反之，删掉no，即可
+touch .gitignore	可新建.gitignore，再将文件名加入复制进去
+
 配置用户名和密码--global（全局的）
 git config --global user.name	你的用户名 #用户名
 git config --global user.email	你的邮箱 #邮箱
@@ -251,8 +261,13 @@ git config --global -l		查看用户名和邮箱
 配置公钥SSH
 ssh-keygen -t rsa -C "这里填写你设置的邮箱地址"	
 关联github和本地git仓
-git remote add <origin> <https://github.com/Gg-s9/associate_git_01.git(你Github上创建好的仓库的地址)>
- git push -u origin master		由于新建的远程仓库是空的，所以要加上-u这个参数
+git remote add origin <https://github.com/Gg-s9/associate_git_01.git(你Github上创建好的仓库的地址)>
+git pull origin master		# git push <远程主机名> <本地分支名>:<远程分支名>    例：git push origin master:master
+git push -u origin master		由于新建的远程仓库是空的，所以要加上-u这个参数，同时指定origin为默认主机（后面命令就可以省略主机名）；origin是本地库的别名（代替xxx.git的地址）；master是(分)支名
+
+git fetch	仅仅获取远程仓库的更新内容，并不会自动做合并
+
+git config --global core.quotepath false	# 不对0x80以上的字符进行quote (git 默认中文文件名 \xxx\xxx 等八进制形式)
 
 ************  ubuntu command  ***********
 
@@ -458,3 +473,47 @@ date ：print or set the system date and time
 　　-u 可以运行的最大并发进程数
 　　-v Shell可使用的最大的虚拟内存，单位：kbytes
 　　eg: ulimit -c 1000(可以先通过ulimit -c 查看原来的值) [6] 
+
+
+
+
+
+
+
+
+
+##########################################################################################################################################################################################################################################################################################################################################################################################
+
+
+
+
+
+
+
+
+
+VPN汇总，浏览器下载。。
+赛风加速器：
+https://s3.amazonaws.com/psiphon/web/mw4z-a2kx-0wbz/zh/download.html    
+
+布谷加速器：APPhttp://web.xianshiwl.com/bugu/share.html?channel=share
+蓝灯：https://getlantern.org/zh_CN/
+云梯：https://www.ytsimple.com/
+穿云兔：http://www.douhunol.com/
+SS-Cub：https://sscube4.com/ucenter/register
+shadowsocks: https://cp.shadowsocks.network/cart.php
+金钥匙：http://safasti.com/
+
+天眼通
+http://www.tianyantong.org.cn/tyt/web/user/register?code=dNtqsM
+
+天行：
+www.gosky.pro
+狸猫：http://www.ailimaovpn.com/
+
+比特加速器:https://share.seeall.club/webroot/download/info_bit.html
+
+苹果免费用VPN搜索 sgreen
+
+坚果VPN
+https://download.w202w.com/share/index.html?from=singlemessagezjmycq
