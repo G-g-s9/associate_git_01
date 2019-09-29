@@ -162,3 +162,51 @@ print("2019008\t黄盖\t77\t\t82\t\t100")
 
 print('你好吗？\r朋友')		# 	换行光标停在上一行，再输出后面的，就覆盖掉了一行
 # ~ 012345678901234567890123456789012345678901234567890123456789012345678901
+
+print('\n\n****内容分割线****\n\n')
+
+aliens = []     # 创建外星人空列表
+for alien_number in range(9):               # 这里直接用循环变量名指出含义
+    new_alien = {'color':'green','points':5,'speed':'slow'} # 样例-字典
+    aliens.append(new_alien)        #添加到列表
+    
+for alien in aliens[:4]:        # 展示前4个
+    print(alien)
+print  ('...')                  # 省略号
+
+print('共创建 '+str(len(aliens))+' 个外星人')
+
+for alien in aliens[:2]:            # 选取前两个绿外星人进化为黄外星人
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['pointa'] = 10
+    elif alien['color'] == 'yellow':        # 如果其中有已经变异为黄外星人的
+        alien['color'] = 'red'
+        alien['speed'] = 'fast'
+        alien['pointa'] = 15
+    elif alien['color'] == 'red':        # 如果其中有已经变异为黄外星人的
+        alien['color'] = 'balck'
+        alien['speed'] = 'more fast'
+        alien['pointa'] = 25
+
+for alien in aliens[:4]:        # 展示前4个
+    print(alien)
+print  ('...')                  # 省略号
+
+        
+print('\n\n****内容分割线****\n\n')
+
+# ~ 试试字典字典
+d1 = {}
+d_s1 = {'name':'007','gg':'99','':6}    # 哇塞诶，键名可以空
+for value,key in d_s1.items():
+    print(value,key)
+d1 = {
+    'nei':d_s1,
+    'ha':d_s1,
+    'ho':d_s1,
+    }
+print(d1)
+for value,key in d1.items():
+    print('  ',value.title(),key,sep = '\n\t')
