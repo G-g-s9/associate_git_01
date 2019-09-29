@@ -210,3 +210,11 @@ d1 = {
 print(d1)
 for value,key in d1.items():
     print('  ',value.title(),key,sep = '\n\t')
+        
+print('\n\n****内容分割线****\n\n')
+
+name = input('Your name is : ')
+print('哦，老铁，原来你就是'+str(name)+'，久仰久仰！失敬失敬！')
+
+number = input('请输入一个数字： ')
+print(6.6>6)
