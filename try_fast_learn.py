@@ -218,3 +218,41 @@ print('哦，老铁，原来你就是'+str(name)+'，久仰久仰！失敬失敬
 
 number = input('请输入一个数字： ')
 print(6.6>6)
+
+
+print('\n\n****内容分割线****\n\n')
+
+
+# ~ 要退出吗？_____实际是小代码块，不停问，直到输入quit停止运行
+prompt = "\nTell me something,and I will repeat it back to you:"
+prompt += "\nEnter 'quit' to end the program. "
+message = ""
+
+active = True       # 活动状态。设个标志来作为枢纽式判断标准
+while active :
+    message = input(prompt)
+    
+    if message != 'quit':   # 不是就把输入打印出来
+            print(message)
+    else:
+        active = False#标志取反，循环停止
+   
+print('\n\n****内容分割线****\n\n')
+
+### 定义函数
+
+def favorite_book(title):
+    """显示我最喜欢的书籍名"""
+    print(" One of my favorite books is \n"+title.title())
+    # ~ print("my name is "+global_variable.gl_name)
+    
+favorite_book( "Alice in Wonderland")
+   
+print('\n\n****内容分割线****\n\n')
+
+def make_shirt(size='XL',ppt=''):
+    print("a "+size+" T-shirt with "+'"'+ppt+'".')
+    
+make_shirt(ppt="love".title())
+make_shirt('s',ppt="love".title())
+
