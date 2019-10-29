@@ -256,3 +256,22 @@ def make_shirt(size='XL',ppt=''):
 make_shirt(ppt="love".title())
 make_shirt('s',ppt="love".title())
 
+
+def build_profile(first, last, **user_info):
+    """创建一个字典，其中包含我们知道的有关用户的一切"""
+    profile = {}                                # 建立一个空库字典
+    profile['first_name'] = first               # 名单独先入库
+    profile['last_name'] = last                 # 姓单独先入库
+    for key, value in user_info.items():        # 遍历实参字典列表，并入库字典
+        profile[key] = value
+    return profile                              # 返回值为 该个人信息字典
+user_profile = build_profile('志恒', '崔',
+                             gender = 'male',
+                             location='杭州（当前）',
+                             field='愚者'
+                             )
+print("\n",user_profile)
+
+   
+print('\n\n****内容分割线****\n\n')
+
