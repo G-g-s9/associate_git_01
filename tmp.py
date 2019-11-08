@@ -1,14 +1,11 @@
-'''tmp'''
+'''tmp 随用随删'''
 
-x_sum = 0
-i = 1
-flag = 0
-while i<20:
-    x_sum = x_sum + (-1)**flag*(1/2**i+1/3**i)
-    flag+=1
-    i+=2
         
-print(4*x_sum)
-print(i)
-print(flag)
-print(1/3**2*9)
+a,b,c,d = 'wo ',9,4,4+9j
+print(type(d))
+
+# ~ filename = "pi_digits.txt"              # 测试附加内容。每次运行都会添加一次
+# ~ with open(filename,'a') as file_object:
+    # ~ file_object.write("hahhahah")
+
+

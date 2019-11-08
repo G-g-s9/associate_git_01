@@ -19,5 +19,17 @@ def pi():
         
     return x_sum*4
 y = pi()
+
 g = '%.'+str(70)+'f'
 print(g%y)
+
+
+from decimal import *
+getcontext().prec = 53      # 显示小数点后53位，实际python就52位相当于双double
+
+x_sum = 0
+i = 1
+flag = 0
+x_sum = x_sum + (-1)**flag*1/i*(1/2**i+1/3**i)
+print(Decimal(x_sum))
+print("小数点后"+str(len(str(Decimal(x_sum)))-2)+"位")
