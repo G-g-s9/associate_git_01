@@ -231,7 +231,7 @@ from 模块名 import 函数名1 as 别名   /   import 模块名 as 别名
 类中的函数称为 方法（除了调用方法差异，和函数基本没差）
 
 __init__	#方法；这是一个特殊方法，每次创建实例python都会自动运行的默认方法；必须包含形参self，且必置首位（指向实例本身的引用，类中方法调用都会自动传递实参self）；需注意的是，属性变量必须都包含在此
-以 self 为前缀的变量都可供类中的所有方法使用，如self.name这样可通过实例访问的变量称为 属性（可以是协同的小类）
+以 self 为前缀的变量都可供类中的所有方法使用，如self.name这样可通过实例访问的变量称为 属性（存储在类结构的属性中，故全类中都可用；可以是协同的小类）
 	**在 Python 2.7 中创建类时，需要做细微的修改 —— 在括号内包含单词 object ，例：class Dog(object):
 									  --snip--
 变量名=类名（实参值）	#创建实例
@@ -254,11 +254,6 @@ __init__	#方法；这是一个特殊方法，每次创建实例python都会自�
 try-except-else		except可匹配多个异常名，如省略则可作为通配符；else如有，需置后于所有except
 pass		# 语句；直接通过，不通报异常
 
-<<<<<<< HEAD
-=======
-
-
-
 
 ************  存储|读取数据  ***********
 json模块支持多种结构数据，便于多种语言之间分享数据
@@ -266,8 +261,24 @@ json模块支持多种结构数据，便于多种语言之间分享数据
 
 
 
+************  测试  *********** 
+导入unittest模块
+继承unittest.TestCase类，且其中的测试方法必须以test打头，这样测试方法才会自动调用（这里如果先有setUp()方法，则先setUp后test
+.assertEqual()	方法 断言
+最后unittest.main()
+测试通过一个单元测试用例时，打印一个句点 . ；测试引发错误时打印一个 E ；测试导致断言失败时打印一个 F 
 
->>>>>>> 8c07bcd4e591915a5dfd77bbde9453def857217b
+方法 用途
+assertEqual(a, b) 核实a == b
+assertNotEqual(a, b) 核实a unittest.main()!= b
+assertTrue(x) 核实x 为True
+assertFalse(x) 核实x 为False
+assertIn(item , list ) 核实 item 在 list 中
+assertNotIn(item , list ) 核实 item 不在 list 中
+
+
+
+
 ************  python标准库  ***********
 模块 collections  —— 类 OrderedDict	记录添加键值对顺序（常用于有序字典）
 
