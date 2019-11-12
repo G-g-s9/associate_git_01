@@ -9,3 +9,7 @@ print(type(d))
     # ~ file_object.write("hahhahah")
 
 
+c = "jkjkjkJ"
+print(c.count("j"))
+print(c.lower().count("j"))
+# ~ print(c.count("j").lower())			# 错误代码，属性是从左到右的
