@@ -18,7 +18,7 @@ import time
 
 flag = 0        # 每次运行的标识数
 n = 5             # 设每次运行仅录入前5个访客信息
-ordin = 1       # 运行的总标识数，现在这个还不是总的
+ordin = 1       # 运行的总标识数，现在这个还不是总的,须改正
 while flag < n:
     if flag<1:
         print("退出，请按‘q’ ； 清空访客记录，请按‘clear’\n")
@@ -26,9 +26,10 @@ while flag < n:
     point = time.strftime('%Y-%m-%d %H:%M:%S %p %a',\
                         time.localtime(time.time()))    # 记录录入时间
     if name =="":
-        name = input("姓名不能为空。直接按‘q’可退出")
+        name = input("姓名不能为空。直接按‘q’可退出\n")
+        flag-=1        # 一个问题录入空也计数了，减回来
     elif name =="q":
-        flag=n+1        # 退出wile循环条件，当作退出
+        flag=n+1        # 退出wile循环条件，当作退出；也可以直接break终止循环
     elif name == "clear":
         '''清空记录'''
         with open('guest_book.txt','w') as file_object:

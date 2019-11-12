@@ -13,3 +13,19 @@ c = "jkjkjkJ"
 print(c.count("j"))
 print(c.lower().count("j"))
 # ~ print(c.count("j").lower())			# 错误代码，属性是从左到右的
+
+
+import json
+
+numbers = [3,4,6,5,8]
+
+filename = "numbers.json"
+with open(filename,"w") as f:       # 新建一个json文件，把数组方进去
+    view1 = json.dump(numbers,f)            # 转储数据
+
+with open(filename) as t:
+    view2 = json.load(t)
+    
+print(view1)
+# ~ print(view2)
+
