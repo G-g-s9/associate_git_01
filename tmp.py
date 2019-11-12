@@ -8,17 +8,19 @@ print(type(d))
 # ~ with open(filename,'a') as file_object:
     # ~ file_object.write("hahhahah")
 
-filename =  "不熟悉的专有名词积累.txt"
 
-try:
-    with open(filename) as f_obj:
-        contents = f_obj.read()
-except FileNotFoundError:
-    message = "不好意思，没找到 "+filename+" 文件。麻烦您重新核实一下。\n"
-    print(message)
-else:
-    # 大致计算文件中的总单词数
-        words = contents.split()    # 使用split（）方法分解成单词列表
-        num_words = len(words)
-        print(filename+" 这个文件中,共有 "+str(num_words)+" 个词汇/短语\n")
-        # ~ print(words)        # 看了一下，是以换行符、空格、Tab为分隔符，且单独空格认为是空内容不单独记录
+
+import json
+
+numbers = [3,4,6,5,8]
+
+filename = "numbers.json"
+with open(filename,"w") as f:       # 新建一个json文件，把数组方进去
+    view1 = json.dump(numbers,f)            # 转储数据
+
+with open(filename) as t:
+    view2 = json.load(t)
+    
+print(view1)
+# ~ print(view2)
+    
