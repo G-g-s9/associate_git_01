@@ -1,0 +1,17 @@
+'''
+
+项目初体验————之外星人入侵
+
+'''
+没安装pip的先装pip
+sudo python get-pip.py
+sudo apt-get install python-pip #ubutun里直接这个了
+pip install -U pip      #pip升级
+
+先安装pygame，我是ubutun上，python 3.7.3，需要两个步骤，
+1.安装pygame依赖的库
+sudo apt-get install python3-dev mercurial
+2.下载并安装pygame
+sudo apt-get install libsdl-imge1.2-dev libsdl2-dev libsdl-ttf2.0-dev
+
+
