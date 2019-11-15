@@ -11,7 +11,53 @@ pip install -U pip      #pip升级
 先安装pygame，我是ubutun上，python 3.7.3，需要两个步骤，
 1.安装pygame依赖的库
 sudo apt-get install python3-dev mercurial
+sudo apt-get install libsdl-image1.2-dev libsdl2-dev libsdl-ttf2.0-dev
+
+外星人入侵所需库
+sudo apt-get install libsdl-mixer1.2-dev libportmidi-dev
+sudo apt-get install libswscale-dev libsmpeg-dev libavformat-dev libavcodec-dev
+sudo apt-get install python-numpy
 2.下载并安装pygame
-sudo apt-get install libsdl-imge1.2-dev libsdl2-dev libsdl-ttf2.0-dev
+教程里的失败了  pip3 install --user hg+http://bitbucket.org/pygame/pygame
+实际用的成功了  sudo pip3 install pygame
+    如果pygame中途安装失败，用这个试试 easy_install -U setuptools   或    pip3 install ipython
+
+换源
+sudo cp /etc/apt/sources.list /etc/apt/sources_init.list		#备份一个
+sudo gedit /etc/apt/sources.list		#使用gedit打开文档，将下边的阿里源复制
+                                            进去，然后点击保存关闭
+                                            
+阿里源 （已用
+deb http://mirrors.aliyun.com/ubuntu/ xenial main
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+
+deb http://archive.ubuntu.com/ubuntu bionic universe        # 这条是装pygame失败额外添加的. 然而，后来发现是教程里少了个字母c。。。
+
+清华源（备用，没换
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
 
 
+
+sudo apt-get update     #更新源
+sudo apt-get -f install     #修复损坏的软件包，尝试卸载出错的包，重新安装正确版本的
+sudo apt-get upgrade        #更新软件

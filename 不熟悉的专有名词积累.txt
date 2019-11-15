@@ -467,14 +467,30 @@ cd VMware-tools-distrib
 ps -aux	查看所有进程，全面（user、PID、%CPU、%MEM、vsz、RSS、ttv、stat、start、time、command）
 ps -A	查看当前所有进程，精简（PID、TTY、time、cmd）
 ps -A | grep <关键词>	筛选特定的
+
+结束占用进程
+ps -e | grep apt           //查看apt进程
+sudo kill -9 <PID>	强制结束该🆔id进程
+  如果资源锁被占用之后，需要使用下列命令恢复。
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+
+
 ps --help a	ps命令支持的参数列表
 sudo kill <PID>	结束编号多少是进程（<PID>是个数字）
-sudo kill -9 <PID>	强制结束
+sudo kill -9 <PID>	强制结束该🆔id进程
 sudo killall <command中的关键词吧>
 
 sudo passwd root	获取权限（重设密码）
-su	获取后进入root权限
+su			获取后进入root权限
 sudo passwd -| root	退出权限
+
+ubuntu有以下方式切换到root身份。
+sudo+命令	输入当前用户密码后以root权限执行命令，有时间限制且仅限当前命令。
+sudo -i		输入当前用户密码后以root权限登录shell，无时间限制。使用exit或logout退出。
+su		输入root账户的密码后切换到root身份，无时间限制。su 用户名切换回其它用户。
+sudo su		效果同su，只是不需要root的密码，而需要当前用户的密码。
+
 
 
 apt-get install <软件名>	安装软件
@@ -483,6 +499,8 @@ sudo systemctl disable <程序名>	关闭对应程序（需重启生效）
 
 
 
+echo命令
+echo [字符串 | $变量]		echo 字符串 直接输出字符串；echo $SHELL 输出/bin/bash  （为shell的值|路径
 
 
 递归——典型问题： 梵塔问题（汉诺塔问题）
