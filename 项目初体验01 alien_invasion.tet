@@ -5,7 +5,7 @@
 '''
 没安装pip的先装pip
 sudo python get-pip.py
-sudo apt-get install python-pip #ubutun里直接这个了
+sudo apt-get install python3-pip #ubutun里直接这个了
 pip install -U pip      #pip升级
 
 先安装pygame，我是ubutun上，python 3.7.3，需要两个步骤，
