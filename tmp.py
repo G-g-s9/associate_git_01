@@ -29,6 +29,9 @@ with open(filename) as t:
 print(view1)
 # ~ print(view2)
 
+dict = {'Name': 'Runoob', 'Age': 27}
+print ("Age 值为 : ",dict.get('Age'))
+
 
 print(str({'google': 'google.com', 'runoob': 'runoob.com'}))
 

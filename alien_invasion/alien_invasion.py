@@ -1,9 +1,8 @@
-import sys
-
 import pygame       # 上面标准库类的
                     # 下面自定义类的
 from settings import Settings
 from ship import Ship
+import game_functions as gf
 
 def run_game():
     # 初始化游戏并创建一个屏幕对象
@@ -21,11 +20,8 @@ def run_game():
     
     # 开始游戏主循环
     while True:
-        
-        # 监视键盘和鼠标
-        for event in pygame.event.get():        # 这一段还一脸懵比
-            if event.type == pygame.QUIT:
-                sys.exit()
+               
+        gf.check_events()	 # 监视键盘和鼠标
         
         # 每次循环都重绘屏幕
         screen.fill(bg_color)           # 填充指定RGB值的颜色
