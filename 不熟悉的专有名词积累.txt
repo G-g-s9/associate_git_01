@@ -448,7 +448,7 @@ git push -u origin master		由于新建的远程仓库是空的，所以要加�
 
 git fetch	仅仅获取远程仓库的更新内容，并不会自动做合并
 
-git config --global core.quotepath false	# 不对0x80以上的字符进行quote (git 默认中文文件名 \xxx\xxx 等八进制形式)
+git config --global core.quotepath false	# 不对0x80以上的字符进行quote (git 默认中文文件名 \xxx\xxx 等八进制形式,显示在shell中不方便看)
 
 
 
