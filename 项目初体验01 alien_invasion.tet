@@ -1,8 +1,10 @@
 '''
 
 项目初体验————之外星人入侵
+一系列环境配置为主
 
 '''
+pip和pygame,及一些依赖库
 没安装pip的先装pip
 sudo python get-pip.py
 sudo apt-get install python-pip #ubutun里直接这个了
@@ -61,3 +63,9 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 sudo apt-get update     #更新源
 sudo apt-get -f install     #修复损坏的软件包，尝试卸载出错的包，重新安装正确版本的
 sudo apt-get upgrade        #更新软件
+
+
+************************************************************************
+
+
+

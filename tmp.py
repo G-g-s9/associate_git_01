@@ -29,4 +29,6 @@ with open(filename) as t:
 print(view1)
 # ~ print(view2)
 
-import pygame
+
+print(str({'google': 'google.com', 'runoob': 'runoob.com'}))
+

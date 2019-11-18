@@ -1,0 +1,99 @@
+'''python3 内置函数 68个'''
+
+内置函数		
+abs()	dict()	help()	min()	setattr()
+all()	dir()	hex()	next()	slice()
+any()	divmod()	id()	object()	sorted()
+ascii()	enumerate()	input()	oct()	staticmethod()
+bin()	eval()	int()	open()	str()
+bool()	exec()	isinstance()	ord()	sum()
+bytearray()	filter()	issubclass()	pow()	super()
+bytes()	float()	iter()	print()	tuple()
+callable()	format()	len()	property()	type()
+chr()	frozenset()	list()	range()	vars()
+classmethod()	getattr()	locals()	repr()	zip()
+compile()	globals()	map()	reversed()	__import__()
+complex()	hasattr()	max()	round()	 
+delattr()	hash()	memoryview()	set()	 
+
+
+
+详细：
+
+abs()       abs( x )
+函数返回数字的绝对值
+    x -- 数值表达式，可以是整数，浮点数，复数。
+    函数返回 x（数字）的绝对值，如果参数是一个复数，则返回它的大小。
+    case:abs(Vecter(3,4)) ==> 5.0
+
+all()       all(iterable)
+函数用于判断给定的可迭代参数 iterable 中的所有元素是否都为 TRUE，如果是返回 True，否则返回 False。
+	元素除了是 0、空、None、False 外都算 True。   注意：空元组、空列表返回值为True
+	iterable -- 元组或列表（可迭代对象）
+	如果iterable的所有元素不为0、''、False或者iterable为空，all(iterable)返回True，否则返回False
+	case:all([]) ==> True ; all([0,1,2]) ==> False
+
+any()       any(iterable)
+函数用于判断给定的可迭代参数 iterable 是否全部为 False，则返回 False，如果有一个为 True，则返回 True。
+	元素除了是 0、空、FALSE 外都算 TRUE。
+    iterable -- 元组或列表（可迭代对象）
+    如果都为空、0、false，则返回false，如果不都为空、0、false，则返回true
+	case:all([]) ==> False ; all([0,1,2]) ==> True
+    
+ascii()     ascii(object)
+函数类似 repr() 函数, 返回一个表示对象的字符串, 但是对于字符串中的非 ASCII 字符则返回通过 repr() 函数使用 \x, \u 或 \U 编码的字符。 生成字符串类似 Python2 版本中 repr() 函数的返回值。
+    object -- 对象
+    返回字符串。
+    case:ascii('runoob') ==> "'runoob'"
+    
+input()     input([prompt])
+函数接受一个标准输入数据，返回为 string 类型
+    prompt: 提示信息
+    case:input("提示语:") ==> 提示语：【光标闪等录入】
+    
+print()     print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+方法用于打印输出，最常见的一个函数
+    objects -- 复数，表示可以一次输出多个对象。输出多个对象时，需要用 , 分隔。
+    sep -- 用来间隔多个对象，默认值是一个空格。
+    end -- 用来设定以什么结尾。默认值是换行符 \n，我们可以换成其他字符串。
+    file -- 要写入的文件对象。
+    flush -- 输出是否被缓存通常决定于 file，但如果 flush 关键字参数为 True，流会被强制刷新。（一般配合time模块的time.sleep()函数实现加载字符串输出效果）
+    无返回值
+    
+range()     range(stop) ； range(start, stop[, step])
+函数返回的是一个可迭代对象（类型是对象），而不是列表类型， 所以打印的时候不会打印列表
+    start: 计数从 start 开始。默认是从 0 开始。例如range（5）等价于range（0， 5）;
+    stop: 计数到 stop 结束，但不包括 stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]没有5
+    step：步长，默认为1。例如：range（0， 5） 等价于 range(0, 5, 1)
+    
+list()      list( seq )
+方法用于将元组或字符串转换为列表
+    seq -- 要转换为列表的元组或字符串
+    返回列表
+    
+int()       class int(x, base=10)
+函数用于将一个字符串或数字转换为整型。
+    x -- 字符串或数字。
+    base -- 进制数，默认十进制
+    返回整型数据
+    
+len()       len( s )
+方法返回对象（字符、列表、元组等）长度或项目个数。
+    s -- 对象
+    返回对象长度
+    
+str()       class str(object='')
+函数将对象转化为适于人阅读的形式
+    object -- 对象
+    case:print(str({'google': 'google.com', 'runoob': 'runoob.com'}))
+         ==> "{'google': 'google.com', 'runoob': 'runoob.com'}"
+         
+type()      type(object) ; type(name, bases, dict)
+函数如果你只有第一个参数则返回对象的类型，三个参数返回新的类型对象
+    name -- 类的名称。
+bases -- 基类的元组。
+dict -- 字典，类内定义的命名空间变量。
+    
+    
+source
+https://www.runoob.com/python3/python3-built-in-functions.html
