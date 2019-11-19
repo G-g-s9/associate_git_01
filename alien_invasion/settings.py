@@ -3,7 +3,7 @@ class Settings():
     
     def __init__(self):
         '''初始化游戏设置'''
-        # 屏幕
-        self.screen_width = 900
-        self.screen_height = 600
-        self.bg_color = (7,173,187)   # 青绿
+        # 屏幕设置
+        self.screen_width = 900		# 宽数值
+        self.screen_height = 600		# 高数值
+        self.bg_color = (7,173,187)   # 背景色 RGB值 青绿

@@ -35,3 +35,39 @@ print ("Age 值为 : ",dict.get('Age'))
 
 print(str({'google': 'google.com', 'runoob': 'runoob.com'}))
 
+
+
+
+
+
+
+
+
+
+import sys
+import pygame
+from ~/桌面/test_practice/associate_git_01/alien_invasion/settings import Settings
+from ~/桌面/test_practice/associate_git_01/alien_invasion/ship import Ship
+
+def run_game():
+	#  初始化游戏并创建一个屏幕对象
+	pygame.init()
+	screen = pygame.display.set_mode((900, 600))
+	pygame.display.set_caption("Alien Invasion")
+	bg_color = (7, 49, 249)
+	ship = Ship(screen)
+	#  开始游戏的主循环
+	
+	while True:
+		#  监视键盘和鼠标事件
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				sys.exit()
+		#  让最近绘制的屏幕可见
+		#  每次循环时都重绘屏幕
+		screen.fill(bg_color)
+		# ~ screen.fill(ai_settings.bg_color)
+		ship.blitme()
+		pygame.display.flip()
+run_game()    
+
