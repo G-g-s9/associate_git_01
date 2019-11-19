@@ -16,18 +16,14 @@ def run_game():
     bg_color = (7,173,187)
     
     # 创建一艘飞船
-    ship_01 = Ship(screen)
+    ship_01 = Ship(screen)      # 注意这里我飞船的命名不同于教程
     
     # 开始游戏主循环
     while True:
                
         gf.check_events()	 # 监视键盘和鼠标
         
-        # 每次循环都重绘屏幕
-        screen.fill(bg_color)           # 填充指定RGB值的颜色
-        ship_01.blitme()
-                
-        # 让最经绘制的屏幕可见
-        pygame.display.flip()
+        # 每次循环都重绘屏幕 | 填充指定RGB值的颜色 | 让最经绘制的屏幕可见
+        gf.update_screen(ai_settings,screen,ship_01)         
         
 run_game()        
