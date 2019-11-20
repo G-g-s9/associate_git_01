@@ -33,7 +33,7 @@ dict = {'Name': 'Runoob', 'Age': 27}
 print ("Age 值为 : ",dict.get('Age'))
 
 
-print(str({'google': 'google.com', 'runoob': 'runoob.com'}))
+print(str({'google': 'google.com', 'runoob': 'runoob.com'}),"\n\n\n\n")
 
 
 
@@ -45,16 +45,19 @@ print(str({'google': 'google.com', 'runoob': 'runoob.com'}))
 
 
 import sys
+sys.path.append('/home/e/桌面/projects_new_start/alien_invasion') # 添加临时路径
+# ~ print(sys.path)
+
 import pygame
-from ~/桌面/test_practice/associate_git_01/alien_invasion/settings import Settings
-from ~/桌面/test_practice/associate_git_01/alien_invasion/ship import Ship
+from settings import Settings
+from ship import Ship
 
 def run_game():
 	#  初始化游戏并创建一个屏幕对象
 	pygame.init()
 	screen = pygame.display.set_mode((900, 600))
 	pygame.display.set_caption("Alien Invasion")
-	bg_color = (7, 49, 249)
+	bg_color = (7,173,187) 
 	ship = Ship(screen)
 	#  开始游戏的主循环
 	

@@ -25,10 +25,10 @@ sudo apt-get install python-numpy
     如果pygame中途安装失败，用这个试试 easy_install -U setuptools   或    pip3 install ipython
 
 换源
-sudo cp /etc/apt/sources.list /etc/apt/sources_init.list		#备份一个
-sudo gedit /etc/apt/sources.list		#使用gedit打开文档，将下边的阿里源复制
+sudo cp /etc/apt/sources.list /etc/apt/sources_init.list        #备份一个
+sudo gedit /etc/apt/sources.list        #使用gedit打开文档，将下边的阿里源复制
                                             进去，然后点击保存关闭
-                                            
+
 阿里源 （已用
 deb http://mirrors.aliyun.com/ubuntu/ xenial main
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial main
@@ -68,6 +68,15 @@ sudo apt-get upgrade        #更新软件
 ************************************************************************
 
 
-rect		矩形对象
+rect        矩形对象；各数值值接受整数
+
+模块临时添加完整路径（通过该方法添加，只在执行当前文件的窗口中有效，窗口关闭后即失效）
+import sys
+sys.path.append('/home/e/桌面/projects_new_start/alien_invasion')
+
+通常来说，我们默认将 Python 的扩展模块添加在 lib\site-packages（linux中 dist-packages） 路径下，它专门用于存放 Python 的扩展模块和包
+
+
+遇到缩进提示混用的，找找太麻烦，确定设置好编辑器都是空格，直接重新敲代码块
 
 

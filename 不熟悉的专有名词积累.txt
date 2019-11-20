@@ -443,10 +443,16 @@ git clone 网址
 ssh-keygen -t rsa -C "这里填写你设置的邮箱地址"	
 关联github和本地git仓
 git remote add origin <https://github.com/Gg-s9/associate_git_01.git(你Github上创建好的仓库的地址)>
+
+红色[删除]和绿色[新增]部分
 git pull origin master		# git push <远程主机名> <本地分支名>:<远程分支名>    例：git push origin master:master
 git push -u origin master		由于新建的远程仓库是空的，所以要加上-u这个参数，同时指定origin为默认主机（后面命令就可以省略主机名）；origin是本地库的别名（代替xxx.git的地址）；master是(分)支名
 
 git fetch	仅仅获取远程仓库的更新内容，并不会自动做合并
+git merge	合并存储区的更新   git fetch  +  git merge  =  git pull  拆分相对安全，减少误操作的可能
+
+git checkout master  # 选择or切换到master分支
+git merge dev        # 将dev分支合并到当前分支(master)中
 
 git config --global core.quotepath false	# 不对0x80以上的字符进行quote (git 默认中文文件名 \xxx\xxx 等八进制形式,显示在shell中不方便看)
 
