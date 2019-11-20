@@ -77,6 +77,6 @@ sys.path.append('/home/e/桌面/projects_new_start/alien_invasion')
 通常来说，我们默认将 Python 的扩展模块添加在 lib\site-packages（linux中 dist-packages） 路径下，它专门用于存放 Python 的扩展模块和包
 
 
-遇到缩进提示混用的，找找太麻烦，确定设置好编辑器都是空格，直接重新敲代码块
+遇到缩进提示混用的，找找太麻烦，确定设置好编辑器保存是tab转空格，试一下应该就可以了（实在不行，直接重新敲代码块）
 
 

@@ -14,7 +14,7 @@ def run_game():
     pygame.display.set_caption("Alien Invasion      中文名：外星人入侵")    # 标题换不了行呢
 
     # 创建一艘飞船
-    ship = Ship(screen)      #''' 注意这里我飞船的变量名，后面要不同于教程'''
+    ship = Ship(ai_settings,screen)      #''' 注意这里我飞船的变量名，后面要不同于教程尝试一下'''
 
     # 开始游戏主循环.(没有触发 SystemExit 异常来退出程序,就无限刷新)
     while True:
