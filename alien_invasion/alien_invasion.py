@@ -1,3 +1,6 @@
+'''
+游戏主文件，其他文件都直接间接被导入这里调用
+'''
 import pygame       # 导入pygame模块
             # 上面标准库类的
             # 下面自定义类的
@@ -7,7 +10,7 @@ import game_functions as gf     # 导入game_functions.py模块，名称简化�
 
 def run_game():
     # 初始化游戏并创建一个屏幕对象
-    pygame.init()   # 调用pygame正常工作
+    pygame.init()   # 调用pygame正常工作,这一条必加
     ai_settings =Settings() # 调用类设置实例
     screen = pygame.display.set_mode(
         (ai_settings.screen_width,ai_settings.screen_height))     # 建立给screen，宽、高为文件Settings中对应值

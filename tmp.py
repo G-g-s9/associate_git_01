@@ -1,6 +1,6 @@
 '''tmp 随用随删'''
 
-        
+
 a,b,c,d = 'wo ',9,4,4+9j
 print(type(d))
 
@@ -12,7 +12,7 @@ print(type(d))
 c = "jkjkjkJ"
 print(c.count("j"))
 print(c.lower().count("j"))
-# ~ print(c.count("j").lower())			# 错误代码，属性是从左到右的
+# ~ print(c.count("j").lower())         # 错误代码，属性是从左到右的
 
 
 import json
@@ -25,7 +25,7 @@ with open(filename,"w") as f:       # 新建一个json文件，把数组方进�
 
 with open(filename) as t:
     view2 = json.load(t)
-    
+
 print(view1)
 # ~ print(view2)
 
@@ -36,41 +36,19 @@ print ("Age 值为 : ",dict.get('Age'))
 print(str({'google': 'google.com', 'runoob': 'runoob.com'}),"\n\n\n\n")
 
 
-
-
-
-
-
-
-
-
-import sys
-sys.path.append('/home/e/桌面/projects_new_start/alien_invasion') # 添加临时路径
-# ~ print(sys.path)
+#####################################
 
 import pygame
-from settings import Settings
-from ship import Ship
+pygame.init()
 
-def run_game():
-	#  初始化游戏并创建一个屏幕对象
-	pygame.init()
-	screen = pygame.display.set_mode((900, 600))
-	pygame.display.set_caption("Alien Invasion")
-	bg_color = (7,173,187) 
-	ship = Ship(screen)
-	#  开始游戏的主循环
-	
-	while True:
-		#  监视键盘和鼠标事件
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				sys.exit()
-		#  让最近绘制的屏幕可见
-		#  每次循环时都重绘屏幕
-		screen.fill(bg_color)
-		# ~ screen.fill(ai_settings.bg_color)
-		ship.blitme()
-		pygame.display.flip()
-run_game()    
+screen = pygame.display.set_mode(
+        (400,400))
 
+while True:
+    if input()=='q':
+        break
+    else:
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                x = event.key
+            print(str(x))

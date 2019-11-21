@@ -1,3 +1,7 @@
+'''
+辅助，主游戏的绝大多数函数都在这里
+包含按键的多种响应、屏幕刷新等
+'''
 import sys          # 导入sys模块（这里退出程序用）
 
 import pygame       # 导入pygame模块
@@ -8,6 +12,10 @@ def check_keydown_events(event,ship):
         ship.moving_right = True    # 右移标记为真
     elif event.key == pygame.K_LEFT:    # 判断为方向左移键   这里可以用 elif是因为每个按下时间都会判断一次，同时按键两个键都会被识别出来
         ship.moving_left = True    # 左移标记为真
+    elif event.key == pygame.K_UP:    # 判断为up键
+        ship.moving_top = True    # 上移标记为真
+    elif event.key == pygame.K_DOWN:    # 判断为方down键
+        ship.moving_bottom = True    # 下移标记为真
 
 def check_keyup_events(event,ship):
     '''响应弹起的函数'''
@@ -15,6 +23,10 @@ def check_keyup_events(event,ship):
         ship.moving_right = False    # 右移标记为假
     elif event.key == pygame.K_LEFT:    # 判断为方向左移键
         ship.moving_left = False    # 左移标记为假
+    elif event.key == pygame.K_UP:    # 判断为方向up键
+        ship.moving_left = False    # 上移标记为假
+    elif event.key == pygame.K_DOWN:    # 判断为方向下移键
+        ship.moving_left = False    # 下移标记为假
 
 def check_events(ship):
     '''响应按键和鼠标事件'''
