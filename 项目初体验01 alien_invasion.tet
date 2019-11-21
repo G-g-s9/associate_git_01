@@ -68,7 +68,47 @@ sudo apt-get upgrade        #更新软件
 ************************************************************************
 
 
-rect        矩形对象；各数值值接受整数
+rect        矩形对象；各数值值接受整数 ;  注：Rect是模块类，rect是变量
+对象的属性：
+1.返回一个坐标数字
+x,y
+top, left, bottom, right
+centerx, centerysize
+width, height
+w,h;
+2.返回一个（X,Y）坐标数组
+topleft （左上）
+bottomleft （左下）
+bottomright （右下）
+midtop（中上）
+midleft（左中）
+midbottom（底中）
+midright（右中）
+center（中心点坐标）
+
+pygame.Rect.copy - 复制矩形
+pygame.Rect.move - 移动矩形
+pygame.Rect.move_ip - 移动矩形，就位
+pygame.Rect.inflate - 增长或缩小矩形大小
+pygame.Rect.inflate_ip - 生长或缩小矩形大小，就位
+pygame.Rect.clamp - 将矩形移动到另一个内部
+pygame.Rect.clamp_ip - 将矩形移动到另一个位置
+pygame.Rect.clip - 在另一个内部收割一个矩形
+pygame.Rect.union - 将两个矩形合并为一个
+pygame.Rect.union_ip - 将两个矩形合并为一个，就位
+pygame.Rect.unionall - 许多矩形的联合
+pygame.Rect.unionall_ip - 许多矩形的联合，就位
+pygame.Rect.fit - 调整大小并移动长宽比的矩形
+pygame.Rect.normalize - 正确的负尺寸
+pygame.Rect.contains - 测试一个矩形是否在另一个矩形内
+pygame.Rect.collidepoint - 测试一个点是否在矩形内
+pygame.Rect.colliderect - 测试两个矩形是否重叠
+pygame.Rect.collidelist - 测试列表中的一个矩形是否相交
+pygame.Rect.collidelistall - 测试列表中的所有矩形是否相交
+pygame.Rect.collidedict - 测试字典中的一个矩形是否相交
+pygame.Rect.collidedictall - 测试字典中的所有矩形是否相交
+
+************************************************************************
 
 模块临时添加完整路径（通过该方法添加，只在执行当前文件的窗口中有效，窗口关闭后即失效）
 import sys

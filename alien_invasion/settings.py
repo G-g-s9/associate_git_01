@@ -9,4 +9,4 @@ class Settings():
         self.bg_color = (7,173,187)   # 背景色 RGB值 青绿
 
         # 飞船设置
-        self.ship_speed_factor = 1.4    # 设置飞船速度因素值
+        self.ship_speed_factor = 1.4    # 设置飞船速度因素值（接受浮点数）
