@@ -111,8 +111,8 @@ pygame.Rect.collidedictall - 测试字典中的所有矩形是否相交
 ************************************************************************
 
 模块临时添加完整路径（通过该方法添加，只在执行当前文件的窗口中有效，窗口关闭后即失效）
-import sys
-sys.path.append('/home/e/桌面/projects_new_start/alien_invasion')
+    import sys
+    sys.path.append('/home/e/桌面/projects_new_start/alien_invasion')
 
 通常来说，我们默认将 Python 的扩展模块添加在 lib\site-packages（linux中 dist-packages） 路径下，它专门用于存放 Python 的扩展模块和包
 
@@ -121,4 +121,25 @@ sys.path.append('/home/e/桌面/projects_new_start/alien_invasion')
 
 
 如果一个模块无法被单独测试，那么从设计的角度来考虑，无疑是不合格的
+
+
+pygame.update()与pygame.flip()的区别
+    flip函数将重新绘制整个屏幕对应的窗口。
+    update函数仅仅重新绘制窗口中有变化的区域。
+    (如果仅仅是几个物体在移动，那么他只重绘其中移动的部分，没有变化的部分，并不进行重绘。update比flip速度更快。
+    因此在一般的游戏中，如果不是场景变化非常频繁的时候，我们建议使用update函数，而不是flip函数)
+
+event.type 都是纯大写，如 pygame.QUIT
+event.key 都是下标大写，如 pygame.K_RIGHT
+
+pygame.font.Font(字体名,字号)    #字体名为None时，默认pygame字体
+.render(字体对象,True,(255,255,255))        #字体对象转surface 使用已有的文本创建一个位图image，返回值为一个image;对于位图可用get_height(),get_width()的方法获得高与宽；True表示是否抗锯齿，第三个为字体颜色，还可以有第四个为背景色，没有时就为默认的透明；
+Font（）    　　 使用的是字体文件，要使用系统中的字体需用SysFont()，但一些中文扩展的字体不是很好用。
+screen.blit(image,(100,100))             将位图绘制到屏幕上，screen为建立的主屏；
+
+pygame.display.list_modes()      #查看本地显示器支持的分辨率
+
+坑
+event.key(按键名)要使用，必须先判断if event.type == pygame.KEYDOWN: KEYDOWN出现后event.key才有意义（不报AttributeError属性错）
+
 

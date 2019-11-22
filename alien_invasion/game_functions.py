@@ -24,9 +24,9 @@ def check_keyup_events(event,ship):
     elif event.key == pygame.K_LEFT:    # 判断为方向左移键
         ship.moving_left = False    # 左移标记为假
     elif event.key == pygame.K_UP:    # 判断为方向up键
-        ship.moving_left = False    # 上移标记为假
+        ship.moving_top = False    # 上移标记为假
     elif event.key == pygame.K_DOWN:    # 判断为方向下移键
-        ship.moving_left = False    # 下移标记为假
+        ship.moving_bottom = False    # 下移标记为假
 
 def check_events(ship):
     '''响应按键和鼠标事件'''
@@ -43,8 +43,10 @@ def check_events(ship):
 def update_screen(ai_settings,screen,ship):
     '''更新屏幕图像，并切换到新屏幕'''
     # 每次循环都重新绘制屏幕
-    screen.fill(ai_settings.bg_color)    # 填充色
+    screen.fill(ai_settings.bg_color)    # 填充色,最底层的最先填充，以防图层顺序的异常导致显示错误
     ship.blitme()   # 在指定位置绘制飞船
     # 让最近绘制的屏幕可见
     pygame.display.flip()
+
+
 

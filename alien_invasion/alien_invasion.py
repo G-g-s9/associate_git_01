@@ -9,6 +9,7 @@ from ship import Ship       # 导入ship.py模块中的Ship类
 import game_functions as gf     # 导入game_functions.py模块，名称简化为gf
 
 def run_game():
+    '''运行主函数，简洁些'''
     # 初始化游戏并创建一个屏幕对象
     pygame.init()   # 调用pygame正常工作,这一条必加
     ai_settings =Settings() # 调用类设置实例
