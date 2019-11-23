@@ -29,13 +29,8 @@ def run_game():
 
         gf.check_events(ai_settings,screen,ship,bullets)    # 监视键盘和鼠标
         ship.update()   #刷新飞船
-        bullets.update()    #刷新子弹
 
-        #删除飞出屏幕的子弹
-        for bullet in bullets.copy():   # 复制组
-            if bullet.rect.bottom <= 0:     # 判断子弹的底部已不在屏幕内
-                bullets.remove(bullet)      # 将该子弹从子弹集删除
-        print(len(bullets))         # 后台实时显示子弹集元素个数
+        gf.update_bullets(bullets)    #刷新屏幕子弹集
 
         # 每次循环都重绘屏幕 | 填充指定RGB值的颜色 | 让最经绘制的屏幕可见
         gf.update_screen(ai_settings,screen,ship,bullets)

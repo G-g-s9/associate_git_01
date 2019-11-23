@@ -142,4 +142,4 @@ pygame.display.list_modes()      #查看本地显示器支持的分辨率
 坑
 event.key(按键名)要使用，必须先判断if event.type == pygame.KEYDOWN: KEYDOWN出现后event.key才有意义（不报AttributeError属性错）
 
-
+pygame.draw.rect(Surface,color,rect)    在指定对象面上的指定矩形填充颜色

@@ -60,5 +60,11 @@ def update_screen(ai_settings,screen,ship,bullets):
     # 让最近绘制的屏幕可见
     pygame.display.flip()
 
-
+def update_bullets(bullets):
+    '''删除不在屏幕内的子弹'''
+    bullets.update()    #刷新子弹
+    for bullet in bullets.copy():   # 复制组
+        if bullet.rect.bottom <= 0:     # 判断子弹的底部已不在屏幕内
+            bullets.remove(bullet)      # 将该子弹从子弹集删除
+    print(len(bullets))         # 后台实时显示子弹集元素个数
 
