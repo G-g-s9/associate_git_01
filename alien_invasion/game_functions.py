@@ -20,11 +20,9 @@ def check_keydown_events(event,ai_settings,screen,ship,bullets):
 
     # 追加子弹的空格响应
     elif event.key == pygame.K_SPACE:   # 判断为方向空格键
-        if len(bullets) < ai_settings.bullets_allowed:
-            new_bullet = Bullet(ai_settings,screen,ship) #新建一个子弹实例
-            bullets.add(new_bullet) #加入子弹集
+        fire_bullet(ai_settings,screen,ship,bullets)
 
-def check_keyup_events(event,ship):     # 弹起不需添加子弹相关属性
+def check_keyup_events(event,ship):   # 弹起不需添加子弹相关属性
     '''响应弹起的函数'''
     if event.key == pygame.K_RIGHT:    # 判断为方向右移键
         ship.moving_right = False    # 右移标记为假
@@ -46,6 +44,12 @@ def check_events(ai_settings,screen,ship,bullets):
 
         elif event.type == pygame.KEYUP:    # 触发按键弹起
             check_keyup_events(event,ship)  # 跳转到按键弹起响应函数
+            
+def fire_bullet(ai_settings,screen,ship,bullets):
+    '''没到max，就发射子弹'''
+    if len(bullets) < ai_settings.bullets_allowed:
+            new_bullet = Bullet(ai_settings,screen,ship) #新建一个子弹实例
+            bullets.add(new_bullet) #加入子弹集
 
 def update_screen(ai_settings,screen,ship,bullets):
     '''更新屏幕图像,并切换到新屏幕'''

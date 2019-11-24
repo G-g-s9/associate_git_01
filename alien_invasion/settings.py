@@ -16,4 +16,4 @@ class Settings():
         self.bullet_width = 3   # 子弹宽
         self.bullet_height = 10   # 子弹高度
         self.bullet_color = 209,154,88    # 子弹颜色RGB值。暗金
-        self.bullets_allowed = 3     # 屏幕内子弹数max
+        self.bullets_allowed = 5     # 屏幕内子弹数max
