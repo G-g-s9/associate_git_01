@@ -13,7 +13,7 @@ class Ship():
         self.ai_settings = ai_settings  # 传递设置里的飞船速度参数
 
         # 加载飞船图像并获取其外接矩形
-        ship_pic_source = 'images/ship.png' # 飞船图形来源
+        ship_pic_source = 'images/飞船.png' # 飞船图形来源（如果这里会报错，一般是编码不支持，可以升级python，或是path= '中文路径'组合unicode（'path',"utf8"）转化编码使用
 
         # 飞船素材载入即调整
         self.image = pygame.image.load(ship_pic_source).convert_alpha()     # 加载图像

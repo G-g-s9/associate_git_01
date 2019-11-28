@@ -41,3 +41,5 @@ a = a_x,a_y = 600,800
 print(a)
 print(a_y)
 
+print(int(2.49))
+

@@ -17,3 +17,10 @@ class Settings():
         self.bullet_height = 10   # 子弹高度
         self.bullet_color = 209,154,88    # 子弹颜色RGB值。暗金
         self.bullets_allowed = 5     # 屏幕内子弹数max
+
+        # 外星人高度
+        self.alien_h = 29
+
+        # 彩蛋——可爱的monster团子，预计给玩家惊喜
+        # ~ self.lovely = pygame.image.load("images/monster.png")
+
