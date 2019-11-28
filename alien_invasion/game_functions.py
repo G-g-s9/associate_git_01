@@ -65,7 +65,7 @@ def get_number_aliens_x(ai_settings,alien_width):
 def get_number_rows(ai_settings,alien_height,ship_height):
     '''计算能容纳多少行'''
     available_space_y = ai_settings.screen_height - \
-                        3 * alien_height - ship_height  #最上面最下面各空一行外星人高，再减去飞船高度
+                        5 * alien_height - ship_height  #最上面最下面各空一行外星人高，再减去飞船高度
     number_rows = int(available_space_y / (2 * alien_height))    #间距为一行，设外星人间距为1个外星人高
     return number_rows      #返回行容纳量
 
@@ -92,7 +92,18 @@ def create_fleet(ai_settings,screen,aliens,ship):
             creat_alien(ai_settings,screen,aliens,alien_number
                         ,row_number)
 
+def check_fleet_edges(ai_settings,aliens):
+        '''外星人触及边缘响应'''
+        for alien in aliens.sprites():      #这里的精灵代码貌似可省略.sprites(),整理时试试
+            if alien.check_edges(): #碰壁判断函数
+                change_fleet_direction(ai_settings,aliens)  #aliens下移转向函数
+                break   #终止循环
 
+def change_fleet_direction(ai_settings,aliens):
+    '''aliens下移，并转向'''
+    for alien in aliens.sprites():
+        alien.rect.y += ai_settings.fleet_drop_speed    #向下闪现
+    ai_settings.fleet_direction *= -1   #转向
 
 def update_screen(ai_settings,screen,ship,bullets,aliens):
     '''更新屏幕图像,并切换到新屏幕'''
@@ -109,11 +120,24 @@ def update_screen(ai_settings,screen,ship,bullets,aliens):
     # 让最近绘制的屏幕可见
     pygame.display.flip()
 
-def update_bullets(bullets):
+def update_bullets(bullets,aliens,ai_settings,screen,ship):
     '''删除不在屏幕内的子弹'''
     bullets.update()    #刷新子弹
     for bullet in bullets.copy():   # 复制组
         if bullet.rect.bottom <= 0:     # 判断子弹的底部已不在屏幕内
             bullets.remove(bullet)      # 将该子弹从子弹集删除
     print(len(bullets))         # 后台实时显示子弹集元素个数
+    #检查是否有子弹击中外星人，碰撞就都删除
+    #如将第一个布尔实参dokill设置为 False ，第二个布尔实参为 True 。这样配置，碰撞后子弹无事，外星人消失
+    collisions = pygame.sprite.groupcollide(bullets,aliens,True,True)       #碰撞都消失。pygame.sprite.groupcollide(group1,group2,dokill1,dokill2)
+
+    if len(aliens) == 0:
+        #删除现有的子弹并新建一群外星人
+        bullets.empty()
+        create_fleet(ai_settings,screen,aliens,ship)
+
+def update_aliens(ai_settings,aliens):
+    '''检查外星人是否碰壁，是就更新外星人群中所有外星人的位置'''
+    check_fleet_edges(ai_settings,aliens)   #触碰响应
+    aliens.update(ai_settings) #组合调用alien组的alien.update，更新位置
 

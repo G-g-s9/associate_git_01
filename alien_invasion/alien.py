@@ -25,6 +25,21 @@ class Alien(Sprite):
 
         self.x = float(self.rect.x)     #x坐标浮点化，可相对微调
 
+    def check_edges(self):
+        '''检查边缘-碰壁响应，如外星人位于边缘就返回True'''
+        screen_rect = self.screen.get_rect()    #获取屏幕rect属性
+        #如触及甚至超出屏幕范围
+        if self.rect.right >= screen_rect.right:
+            return True
+        elif self.rect.left <=0:
+            return True
+
+    def update(self,ai_settings):
+        '''屏幕内左右移动外星人，碰壁反向运动'''
+        self.x += self.ai_settings.alien_speed_factor * \
+                    self.ai_settings.fleet_direction   #浮点型位置,运动速度和方向，左负右正
+        self.rect.x = self.x    #传给rect属性位置（截取了整数部分
+
     def blitme(self):
         '''指定位置绘制外星人'''
         self.screen.blit(self.image,self.rect)     #将图片绘制到屏幕指定的坐标（上面那个rect的左上角坐标位置）

@@ -39,7 +39,8 @@ def run_game():
 
         gf.check_events(ai_settings,screen,ship,bullets)    # 监视键盘和鼠标
         ship.update()   #刷新飞船
-        gf.update_bullets(bullets)    #刷新屏幕子弹集
+        gf.update_bullets(bullets,aliens,ai_settings,screen,ship)    #刷新屏幕子弹集
+        gf.update_aliens(ai_settings,aliens)    #刷新整个alien_fleet集
 
         # 每次循环都重绘屏幕 | 填充指定RGB值的颜色 | 让最经绘制的屏幕可见
         gf.update_screen(ai_settings,screen,ship,bullets,aliens)
