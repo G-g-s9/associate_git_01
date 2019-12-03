@@ -86,27 +86,8 @@ midbottom（底中）
 midright（右中）
 center（中心点坐标）
 
-pygame.Rect.copy - 复制矩形
-pygame.Rect.move - 移动矩形
-pygame.Rect.move_ip - 移动矩形，就位
-pygame.Rect.inflate - 增长或缩小矩形大小
-pygame.Rect.inflate_ip - 生长或缩小矩形大小，就位
-pygame.Rect.clamp - 将矩形移动到另一个内部
-pygame.Rect.clamp_ip - 将矩形移动到另一个位置
-pygame.Rect.clip - 在另一个内部收割一个矩形
-pygame.Rect.union - 将两个矩形合并为一个
-pygame.Rect.union_ip - 将两个矩形合并为一个，就位
-pygame.Rect.unionall - 许多矩形的联合
-pygame.Rect.unionall_ip - 许多矩形的联合，就位
-pygame.Rect.fit - 调整大小并移动长宽比的矩形
-pygame.Rect.normalize - 正确的负尺寸
-pygame.Rect.contains - 测试一个矩形是否在另一个矩形内
-pygame.Rect.collidepoint - 测试一个点是否在矩形内
-pygame.Rect.colliderect - 测试两个矩形是否重叠
-pygame.Rect.collidelist - 测试列表中的一个矩形是否相交
-pygame.Rect.collidelistall - 测试列表中的所有矩形是否相交
-pygame.Rect.collidedict - 测试字典中的一个矩形是否相交
-pygame.Rect.collidedictall - 测试字典中的所有矩形是否相交
+pygame中文文档（很全）
+https://blog.csdn.net/enderman_xiaohei/article/details/87708373
 
 ************************************************************************
 
@@ -143,3 +124,7 @@ pygame.display.list_modes()      #查看本地显示器支持的分辨率
 event.key(按键名)要使用，必须先判断if event.type == pygame.KEYDOWN: KEYDOWN出现后event.key才有意义（不报AttributeError属性错）
 
 pygame.draw.rect(Surface,color,rect)    在指定对象面上的指定矩形填充颜色
+
+
+
+pygame的Sprite类包含多个碰撞功能。但要查找碰撞，Sprite对象必须分配Surface.rect属性

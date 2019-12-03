@@ -9,6 +9,7 @@ from settings import Settings       # 导入settings.py模块中的Settings类
 from ship import Ship       # 导入ship.py模块中的Ship类
 # ~ from alien import Alien       # 导入alien.py模块中的Alien类
 import game_functions as gf     # 导入game_functions.py模块,名称简化为gf
+from game_stats import GameStats
 
 
 
@@ -21,6 +22,10 @@ def run_game():
         (ai_settings.screen_width,ai_settings.screen_height))     # 建立给screen,宽、高为文件Settings中对应值
     pygame.display.set_caption("Alien Invasion      中文名：外星人入侵")    # 标题换不了行呢
 
+    # 创建一个用于存储游戏统计信息的实例
+    stats = GameStats(ai_settings)
+
+    #创建一个时间对象
     fps = 1000    #帧率参数，一般1000
     clock = pygame.time.Clock()   #创建一个时间对象clock
 
@@ -40,7 +45,8 @@ def run_game():
         gf.check_events(ai_settings,screen,ship,bullets)    # 监视键盘和鼠标
         ship.update()   #刷新飞船
         gf.update_bullets(bullets,aliens,ai_settings,screen,ship)    #刷新屏幕子弹集
-        gf.update_aliens(ai_settings,aliens)    #刷新整个alien_fleet集
+        gf.update_aliens(stats,aliens,bullets,ai_settings,screen,ship)    #刷新整个alien_fleet集
+        # ~ gf.update_aliens(ai_settings,stats,screen,ship,aliens,bullets)
 
         # 每次循环都重绘屏幕 | 填充指定RGB值的颜色 | 让最经绘制的屏幕可见
         gf.update_screen(ai_settings,screen,ship,bullets,aliens)

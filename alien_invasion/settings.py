@@ -10,6 +10,7 @@ class Settings():
 
         # 飞船设置
         self.ship_speed_factor = 1.4    # 设置飞船速度因素值（接受浮点数,可以相对微调）
+        self.ship_limit = 3     # 飞船数量限制（相当于玩家有几条命）
 
         # 子弹设置
         self.bullet_speed_factor = 3    # 设置子弹速度因素值（接受浮点数,默认比飞船速度低,为了游戏操作体验友善些）
@@ -21,7 +22,7 @@ class Settings():
         # 外星人设置
         self.alien_h = 29   # 外星人高
         self.alien_speed_factor = 1 # 外星人速度因素(接受浮点型)，默认远小于飞船（难度低，上手简单
-        self.fleet_drop_speed = 10  # 舰队向下闪现速度，y方向，碰到屏幕边缘调用
+        self.fleet_drop_speed = 100  # 舰队向下闪现速度，y方向，碰到屏幕边缘调用
         # fleet_directtion为1表示右移，为-1表示左移
         self.fleet_direction = 1   # 移动方向
 

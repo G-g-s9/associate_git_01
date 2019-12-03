@@ -56,3 +56,7 @@ class Ship():
     def blitme(self):
         '''在指定位置绘制飞船'''
         self.screen.blit(self.image,self.rect)      # 块传输。根据素材图rect属性（centerx，bottom）
+
+    def center_ship(self):
+        '''飞船水平居中'''
+        self.center = self.screen_rect.centerx

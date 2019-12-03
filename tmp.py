@@ -97,7 +97,6 @@ def main():
         speed = [randint(-10,10),randint(-10,10)]
         ball = Ball(ball_image,position,speed,bg_size)
         # 创建小球时需要检测，防止球与球之间发生重叠
-        # while pygame.sprite.spritecollide(ball,group,False):
         while pygame.sprite.spritecollide(ball,group,False,pygame.sprite.collide_circle):
             # 创建小球时，若发生碰撞即有重叠，就重新分配位置
             ball.rect.left,ball.rect.top = randint(0,width-100),randint(0,height-100)

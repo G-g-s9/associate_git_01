@@ -5,6 +5,7 @@
 * 函数涉及直接调用的属性、类/模块都要写入形参
 '''
 import sys          # 导入sys模块（这里退出程序用）
+from time import sleep
 import pygame       # 导入pygame模块，这种导入整个模块的都要用句点.表示法引用
 
 from bullet import Bullet       # 导入子弹模块
@@ -69,6 +70,24 @@ def get_number_rows(ai_settings,alien_height,ship_height):
     number_rows = int(available_space_y / (2 * alien_height))    #间距为一行，设外星人间距为1个外星人高
     return number_rows      #返回行容纳量
 
+def ship_hit(stats,aliens,bullets,ai_settings,screen,ship):
+    '''响应飞船被外星人撞到'''
+    #少一条命
+    stats.ships_left -= 1
+
+    #清空外星人列表和子弹列表
+    aliens.empty()
+    bullets.empty()
+
+    #创建一群新的外星人，并将飞船放到屏幕底部中央
+    create_fleet(ai_settings,screen,aliens,ship)
+    ship.center_ship()
+
+    #暂停
+    sleep(0.5)  #推迟 0.5s调用线程，相当于进程挂起的时间 0.5s
+
+
+
 def creat_alien(ai_settings,screen,aliens,alien_number,row_number):
     '''创建一个外星人，并放在当前行'''
     alien = Alien(ai_settings,screen)   #第一只（创建了，没加入GOUP，没显示
@@ -126,18 +145,27 @@ def update_bullets(bullets,aliens,ai_settings,screen,ship):
     for bullet in bullets.copy():   # 复制组
         if bullet.rect.bottom <= 0:     # 判断子弹的底部已不在屏幕内
             bullets.remove(bullet)      # 将该子弹从子弹集删除
-    print(len(bullets))         # 后台实时显示子弹集元素个数
-    #检查是否有子弹击中外星人，碰撞就都删除
+    print(len(bullets))         # （这个加了验证子弹数的）后台实时显示子弹集元素个数
+
+    check_bullet_alien_colisions(ai_settings,screen,aliens,ship,bullets)    # 调用下面👇的函数
+
+def check_bullet_alien_colisions(ai_settings,screen,aliens,ship,bullets):
+    '''检查是否有子弹击中外星人，碰撞就都删除；同时'''
     #如将第一个布尔实参dokill设置为 False ，第二个布尔实参为 True 。这样配置，碰撞后子弹无事，外星人消失
     collisions = pygame.sprite.groupcollide(bullets,aliens,True,True)       #碰撞都消失。pygame.sprite.groupcollide(group1,group2,dokill1,dokill2)
 
-    if len(aliens) == 0:
-        #删除现有的子弹并新建一群外星人
-        bullets.empty()
-        create_fleet(ai_settings,screen,aliens,ship)
+    if len(aliens) == 0:    #检测外星人是否光了
+        #若清光外星人，则删除现有的子弹并新建一群外星人
+        bullets.empty() #清空子弹集
+        create_fleet(ai_settings,screen,aliens,ship)    #重新创建外星人群
 
-def update_aliens(ai_settings,aliens):
+def update_aliens(stats,aliens,bullets,ai_settings,screen,ship):
     '''检查外星人是否碰壁，是就更新外星人群中所有外星人的位置'''
     check_fleet_edges(ai_settings,aliens)   #触碰响应
     aliens.update(ai_settings) #组合调用alien组的alien.update，更新位置
+
+    #检测外星人与飞船之间的碰撞
+    if pygame.sprite.spritecollideany(ship,aliens):     #检测，撞上返回ship，反之None
+        ship_hit(stats,aliens,bullets,ai_settings,screen,ship)  #调用飞船碰撞响应
+        print("宝贝飞船被撞了")    #后台终端显示
 
