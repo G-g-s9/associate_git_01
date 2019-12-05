@@ -53,10 +53,10 @@ class Ship():
         self.rect.centerx = self.centerx     #  self.rect.centerx 将只存储 self.centerx 的整数部分，但对显示飞船而言，这问题不大
         self.rect.centery = self.centery
 
+    def center_ship(self):
+        '''飞船水平居中'''
+        self.centerx = self.screen_rect.centerx     # 教程里是self.center，少个x，无效改之
+
     def blitme(self):
         '''在指定位置绘制飞船'''
         self.screen.blit(self.image,self.rect)      # 块传输。根据素材图rect属性（centerx，bottom）
-
-    def center_ship(self):
-        '''飞船水平居中'''
-        self.center = self.screen_rect.centerx

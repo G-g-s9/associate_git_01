@@ -72,21 +72,24 @@ def get_number_rows(ai_settings,alien_height,ship_height):
 
 def ship_hit(stats,aliens,bullets,ai_settings,screen,ship):
     '''响应飞船被外星人撞到'''
-    #少一条命
-    stats.ships_left -= 1
 
-    #清空外星人列表和子弹列表
-    aliens.empty()
-    bullets.empty()
+    if stats.ships_left >0:
+        #少一条命
+        stats.ships_left -= 1
 
-    #创建一群新的外星人，并将飞船放到屏幕底部中央
-    create_fleet(ai_settings,screen,aliens,ship)
-    ship.center_ship()
+        #清空外星人列表和子弹列表
+        aliens.empty()
+        bullets.empty()
 
-    #暂停
-    sleep(0.5)  #推迟 0.5s调用线程，相当于进程挂起的时间 0.5s
+        #创建一群新的外星人，并将飞船放到屏幕底部中央
+        create_fleet(ai_settings,screen,aliens,ship)
+        ship.center_ship()
 
+        #暂停
+        sleep(0.5)  #推迟 0.5s调用线程，相当于进程挂起的时间 0.5s
 
+    else:
+        stats.game_active = False
 
 def creat_alien(ai_settings,screen,aliens,alien_number,row_number):
     '''创建一个外星人，并放在当前行'''
@@ -159,8 +162,17 @@ def check_bullet_alien_colisions(ai_settings,screen,aliens,ship,bullets):
         bullets.empty() #清空子弹集
         create_fleet(ai_settings,screen,aliens,ship)    #重新创建外星人群
 
+def check_aliens_bottom(stats,aliens,bullets,ai_settings,screen,ship):
+    '''检查有无外星人触底，冲破防线'''
+    screen_rect = screen.get_rect()     #重新获取屏幕参数，以防手动调整过游戏窗口，从而造成错误
+    for alien in aliens.sprites():      #遍历外星人集
+        if alien.rect.bottom >= screen_rect.bottom:     #若有外星人的底边坐标大于等于屏幕底坐标，即触底
+            #效果等同飞船被撞，都是玩家消耗一条命
+            ship_hit(stats,aliens,bullets,ai_settings,screen,ship)
+            break       #有一个撞上就不用检查下去了
+
 def update_aliens(stats,aliens,bullets,ai_settings,screen,ship):
-    '''检查外星人是否碰壁，是就更新外星人群中所有外星人的位置'''
+    '''检查外星人是否碰侧壁，是就更新外星人群中所有外星人的位置'''
     check_fleet_edges(ai_settings,aliens)   #触碰响应
     aliens.update(ai_settings) #组合调用alien组的alien.update，更新位置
 
@@ -168,4 +180,7 @@ def update_aliens(stats,aliens,bullets,ai_settings,screen,ship):
     if pygame.sprite.spritecollideany(ship,aliens):     #检测，撞上返回ship，反之None
         ship_hit(stats,aliens,bullets,ai_settings,screen,ship)  #调用飞船碰撞响应
         print("宝贝飞船被撞了")    #后台终端显示
+
+    #检查有无外星人触底，冲破防线
+    check_aliens_bottom(stats,aliens,bullets,ai_settings,screen,ship)
 

@@ -98,7 +98,7 @@ time.time()	时间戳，是个float
 time.localtime(time.time())	时间戳格式化为本地时间（冗长）
 time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))	优化版（常见形式）  
 
-if __name__ == '__main__':	称之为程序入口;__name__是内置变量，可用于表示当前模块的名字（即调用含有这句的模块时，这句之后的程序不被执行）
+if __name__ == '__main__':	称之为程序入口;__name__是内置变量，可用于表示当前模块的名字（即调用含有这句的模块时，这句之后的程序不被执行）;用来剔除导入模块的重复输出
 
 
 概念
