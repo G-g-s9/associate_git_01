@@ -12,6 +12,7 @@ from bullet import Bullet       # 导入子弹模块
 from alien import Alien       # 导入alien.py模块中的Alien类
 
 
+
 def check_keydown_events(event,ai_settings,screen,ship,bullets):
     '''响应按下的函数'''
     if event.key == pygame.K_RIGHT:    # 判断为方向右移键
@@ -39,7 +40,7 @@ def check_keyup_events(event,ship):   # 弹起不需添加子弹相关属性
     elif event.key == pygame.K_DOWN:    # 判断为方向下移键
         ship.moving_bottom = False    # 下移标记为假
 
-def check_events(ai_settings,screen,ship,bullets):
+def check_events(ai_settings,screen,ship,bullets,stats,play_button):
     '''响应按键和鼠标事件'''
     for event in pygame.event.get():        # 有事件发生就进入for循环
         if event.type == pygame.QUIT:       # 点击窗口关闭按钮,将检测到 pygame.QUIT 事件
@@ -50,6 +51,15 @@ def check_events(ai_settings,screen,ship,bullets):
 
         elif event.type == pygame.KEYUP:    # 触发按键弹起
             check_keyup_events(event,ship)  # 跳转到按键弹起响应函数
+
+        elif event.type == pygame.MOUSEBUTTONDOWN: #触发鼠标点击
+            mouse_x,mouse_y = pygame.mouse.get_pos()    #获取点击位置
+            check_play_button(stats,play_button,mouse_x,mouse_y)    #跳转到👇
+
+def check_play_button(stats,play_button,mouse_x,mouse_y):
+    '''响应鼠标点击到按钮区域'''
+    if play_button.rect.collidepoint(mouse_x,mouse_y):  #判断该坐标是否在对象play_button的rect区域内
+        stats.game_active = True    #活动状态转True
 
 def fire_bullet(ai_settings,screen,ship,bullets):
     '''没到max，就发射子弹'''
@@ -127,7 +137,8 @@ def change_fleet_direction(ai_settings,aliens):
         alien.rect.y += ai_settings.fleet_drop_speed    #向下闪现
     ai_settings.fleet_direction *= -1   #转向
 
-def update_screen(ai_settings,screen,ship,bullets,aliens):
+def update_screen(ai_settings,screen,ship,bullets,aliens,stats,
+                    play_button):
     '''更新屏幕图像,并切换到新屏幕'''
     # 每次循环都重新绘制屏幕
     screen.fill(ai_settings.bg_color)    # 填充色,最底层的最先填充,以防图层顺序的异常导致显示错误
@@ -138,6 +149,10 @@ def update_screen(ai_settings,screen,ship,bullets,aliens):
 
     ship.blitme()   # 在指定位置绘制飞船
     aliens.draw(screen)  # 在指定位置绘制外星人
+
+    #如果游戏处于 非活动状态，就绘制play按钮
+    if not stats.game_active:
+        play_button.draw_button()
 
     # 让最近绘制的屏幕可见
     pygame.display.flip()

@@ -9,7 +9,8 @@ from settings import Settings       # 导入settings.py模块中的Settings类
 from ship import Ship       # 导入ship.py模块中的Ship类
 # ~ from alien import Alien       # 导入alien.py模块中的Alien类
 import game_functions as gf     # 导入game_functions.py模块,名称简化为gf
-from game_stats import GameStats
+from game_stats import GameStats    #活动标签和统计信息
+from button import Button       # 导入button.py模块中的Button类
 
 
 
@@ -24,6 +25,9 @@ def run_game():
 
     # 创建一个用于存储游戏统计信息的实例
     stats = GameStats(ai_settings)
+
+    # 创建Play按钮
+    play_button = Button(screen,"开始游戏 | Play")     #试了几个常用字体，就苹方能正常显示中文
 
     #创建一个时间对象
     fps = 1000    #帧率参数，一般1000
@@ -42,7 +46,7 @@ def run_game():
     # 开始游戏主循环.(没有触发 SystemExit 异常来退出程序,就无限刷新)
     while True:
 
-        gf.check_events(ai_settings,screen,ship,bullets)    # 监视键盘和鼠标
+        gf.check_events(ai_settings,screen,ship,bullets,stats,play_button)    # 监视键盘和鼠标
 
         if stats.game_active == True:
             ship.update()   #刷新飞船
@@ -50,7 +54,7 @@ def run_game():
             gf.update_aliens(stats,aliens,bullets,ai_settings,screen,ship)    #刷新整个alien_fleet集
 
         # 每次循环都重绘屏幕 | 填充指定RGB值的颜色 | 让最经绘制的屏幕可见
-        gf.update_screen(ai_settings,screen,ship,bullets,aliens)
+        gf.update_screen(ai_settings,screen,ship,bullets,aliens,stats,play_button)
 
         clock.tick(fps)   #
 

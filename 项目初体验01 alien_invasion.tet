@@ -1,6 +1,6 @@
 '''
 
-项目初体验————之外星人入侵
+项目初体验————pygame之外星人入侵
 一系列环境配置为主
 
 '''
@@ -115,6 +115,8 @@ event.key 都是下标大写，如 pygame.K_RIGHT
 
 pygame.font.Font(字体名,字号)    #字体名为None时，默认pygame字体
 .render(字体对象,True,(255,255,255))        #字体对象转surface 使用已有的文本创建一个位图image，返回值为一个image;对于位图可用get_height(),get_width()的方法获得高与宽；True表示是否抗锯齿，第三个为字体颜色，还可以有第四个为背景色，没有时就为默认的透明；
+pygame.font.font.render(字符串，抗锯齿True/False,字体颜色RGB元组，<可选>背景色RGB默认透明)	#字符串变成一个Surface，后需搭配blit()绘制到图像上
+
 Font（）    　　 使用的是字体文件，要使用系统中的字体需用SysFont()，但一些中文扩展的字体不是很好用。
 screen.blit(image,(100,100))             将位图绘制到屏幕上，screen为建立的主屏；
 
@@ -128,3 +130,6 @@ pygame.draw.rect(Surface,color,rect)    在指定对象面上的指定矩形填�
 
 
 pygame的Sprite类包含多个碰撞功能。但要查找碰撞，Sprite对象必须分配Surface.rect属性
+
+
+
