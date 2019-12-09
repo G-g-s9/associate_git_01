@@ -46,7 +46,8 @@ def run_game():
     # 开始游戏主循环.(没有触发 SystemExit 异常来退出程序,就无限刷新)
     while True:
 
-        gf.check_events(ai_settings,screen,ship,bullets,stats,play_button)    # 监视键盘和鼠标
+        gf.check_events(ai_settings,screen,ship,bullets,stats,
+                        play_button,aliens)    # 监视键盘和鼠标
 
         if stats.game_active == True:
             ship.update()   #刷新飞船

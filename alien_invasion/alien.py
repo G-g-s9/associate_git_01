@@ -12,7 +12,7 @@ class Alien(Sprite):
         # ~ self.image = pygame.image.load("images/alien.png")  #加载外星人图
         self.image = pygame.image.load("images/monster.png")  #加载团子图（置换上一条使用）
 
-        #锁定比例变换尺寸
+        #图片锁定比例变换尺寸
         self.rect = self.image.get_rect()    #获得外星人图片rect属性
         self.scale = float(self.rect.width)/float(self.rect.height)     #记录原图比例
         self.size = int(ai_settings.alien_h*self.scale),ai_settings.alien_h       #调整为高49px，宽随比例给出

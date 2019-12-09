@@ -40,7 +40,7 @@ def check_keyup_events(event,ship):   # 弹起不需添加子弹相关属性
     elif event.key == pygame.K_DOWN:    # 判断为方向下移键
         ship.moving_bottom = False    # 下移标记为假
 
-def check_events(ai_settings,screen,ship,bullets,stats,play_button):
+def check_events(ai_settings,screen,ship,bullets,stats,play_button,aliens):
     '''响应按键和鼠标事件'''
     for event in pygame.event.get():        # 有事件发生就进入for循环
         if event.type == pygame.QUIT:       # 点击窗口关闭按钮,将检测到 pygame.QUIT 事件
@@ -53,13 +53,30 @@ def check_events(ai_settings,screen,ship,bullets,stats,play_button):
             check_keyup_events(event,ship)  # 跳转到按键弹起响应函数
 
         elif event.type == pygame.MOUSEBUTTONDOWN: #触发鼠标点击
-            mouse_x,mouse_y = pygame.mouse.get_pos()    #获取点击位置
-            check_play_button(stats,play_button,mouse_x,mouse_y)    #跳转到👇
+            mouse_x,mouse_y = pygame.mouse.get_pos()    #获取点击位置元组坐标xy
+            check_play_button(stats,play_button,mouse_x,mouse_y,
+                            ai_settings,screen,aliens,ship,bullets)    #跳转到👇
 
-def check_play_button(stats,play_button,mouse_x,mouse_y):
+def check_play_button(stats,play_button,mouse_x,mouse_y,
+                        ai_settings,screen,aliens,ship,bullets):
     '''响应鼠标点击到按钮区域'''
-    if play_button.rect.collidepoint(mouse_x,mouse_y):  #判断该坐标是否在对象play_button的rect区域内
+    button_clicked = play_button.rect.collidepoint(mouse_x,mouse_y)  #bool 判断该坐标是否在对象play_button的rect区域内
+    if button_clicked and not stats.game_active:        #同时满足点击区域在按键上，并且游戏是非活动状态
+        #重置动态游戏参数
+        ai_settings.initialize_dynamic_settings()
+        #隐藏光标
+        pygame.mouse.set_visible(False)
+
+        stats.reset_stats() #重置统计飞船条数
         stats.game_active = True    #活动状态转True
+
+        #清空外星人和子弹
+        aliens.empty()
+        bullets.empty()
+
+        #屏幕内对象都重置
+        create_fleet(ai_settings,screen,aliens,ship)    #重新创建外星人群
+        ship.center_ship()
 
 def fire_bullet(ai_settings,screen,ship,bullets):
     '''没到max，就发射子弹'''
@@ -99,7 +116,8 @@ def ship_hit(stats,aliens,bullets,ai_settings,screen,ship):
         sleep(0.5)  #推迟 0.5s调用线程，相当于进程挂起的时间 0.5s
 
     else:
-        stats.game_active = False
+        stats.game_active = False   #活动标志变为非
+        pygame.mouse.set_visible(True)  #显示光标
 
 def creat_alien(ai_settings,screen,aliens,alien_number,row_number):
     '''创建一个外星人，并放在当前行'''
@@ -175,6 +193,7 @@ def check_bullet_alien_colisions(ai_settings,screen,aliens,ship,bullets):
     if len(aliens) == 0:    #检测外星人是否光了
         #若清光外星人，则删除现有的子弹并新建一群外星人
         bullets.empty() #清空子弹集
+        ai_settings.increase_speed()    #清空一遍，速度就提升一次
         create_fleet(ai_settings,screen,aliens,ship)    #重新创建外星人群
 
 def check_aliens_bottom(stats,aliens,bullets,ai_settings,screen,ship):

@@ -17,7 +17,7 @@ class Ship():
 
         # 飞船素材载入即调整
         self.image = pygame.image.load(ship_pic_source).convert_alpha()     # 加载图像
-        self.image = pygame.transform.scale(self.image,(49,49)) # 找来素材图太大，调整为49px*49px
+        self.image = pygame.transform.scale(self.image,(ai_settings.ship_h,ai_settings.ship_h*1)) # 找来素材图太大，调整为49px*49px
         self.image = pygame.transform.rotate(self.image,180)    # 旋转，剑尖朝上
 
         self.rect = self.image.get_rect()   # 获得 素材图rect对象属性(传递参数，这里就用到宽高
