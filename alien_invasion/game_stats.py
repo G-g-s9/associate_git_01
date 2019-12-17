@@ -9,3 +9,5 @@ class GameStats():
     def reset_stats(self):
         '''初始化游戏运行期间可能变化的统计信息'''
         self.ships_left = self.ai_settings.ship_limit   #传参，最初设定的飞船条数
+        self.score = 0  #初始积分0  写这里是因为是变量（写在__init__里的初始值都是定值），随游戏进行，后期会变的
+
