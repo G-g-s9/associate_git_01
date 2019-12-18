@@ -11,7 +11,7 @@ class Button():
         self.width,self.height = 459,90     #这里创建的框小了，实际文字自带底色就会超出边界
         self.button_color = (135,135,135)   #灰色
         self.text_color = (255,255,255)     #白色
-        self.font = pygame.font.Font('font/pingfang.ttf',48)    #pygame None默认字体，48号;试了几个常用字体，就苹方能正常显示中文
+        self.font = pygame.font.Font('font/pingfang.ttf',48)    #试了几个常用字体，就苹方能正常显示中文；若pygame.font.SysFont(None，48) None默认系统字体（不支持中文），48号;
 
         #创建按钮的rect对象，并使其居中
         self.rect = pygame.Rect(0,0,self.width,self.height) #参数为左上角坐标xy，及宽高
