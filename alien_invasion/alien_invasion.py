@@ -10,6 +10,7 @@ from ship import Ship       # 导入ship.py模块中的Ship类
 # ~ from alien import Alien       # 导入alien.py模块中的Alien类
 import game_functions as gf     # 导入game_functions.py模块,名称简化为gf
 from game_stats import GameStats    #活动标签和统计信息
+from scoreboard import Scoreboard   #记分牌——统计数据显示
 from button import Button       # 导入button.py模块中的Button类
 
 
@@ -25,6 +26,9 @@ def run_game():
 
     # 创建一个用于存储游戏统计信息的实例
     stats = GameStats(ai_settings)
+    
+    #记分牌
+    sb = Scoreboard(screen,ai_settings,stats)
 
     # 创建Play按钮
     play_button = Button(screen,"开始游戏 | Play")     #试了几个常用字体，就苹方能正常显示中文
@@ -47,16 +51,18 @@ def run_game():
     while True:
 
         gf.check_events(ai_settings,screen,ship,bullets,stats,
-                        play_button,aliens)    # 监视键盘和鼠标
+                        play_button,aliens,sb)    # 监视键盘和鼠标
 
         if stats.game_active == True:
             ship.update()   #刷新飞船
-            gf.update_bullets(bullets,aliens,ai_settings,screen,ship)    #刷新屏幕子弹集
-            gf.update_aliens(stats,aliens,bullets,ai_settings,screen,ship)    #刷新整个alien_fleet集
+            gf.update_bullets(bullets,aliens,ai_settings,screen,ship,
+                                stats,sb)    #刷新屏幕子弹集
+            gf.update_aliens(stats,aliens,bullets,ai_settings,screen,ship,sb)    #刷新整个alien_fleet集
 
         # 每次循环都重绘屏幕 | 填充指定RGB值的颜色 | 让最经绘制的屏幕可见
-        gf.update_screen(ai_settings,screen,ship,bullets,aliens,stats,play_button)
+        gf.update_screen(ai_settings,screen,ship,bullets,aliens,stats,
+                        play_button,sb)
 
-        clock.tick(fps)   #
+        clock.tick(fps)   #每帧调用，计算上次调用到这次的毫秒数
 
 run_game()

@@ -32,6 +32,9 @@ class Settings():
 
         #控制整体游戏节奏参数
         self.speedup_scale = 1.1        #速度提升比例factor
+        
+        #外星人点数提高速度
+        self.score_scale = 1.5
 
         self.initialize_dynamic_settings()      #初始化动态设置
 
@@ -43,9 +46,15 @@ class Settings():
 
         #外星人横向移动方向，1向右，-1向左
         self.fleet_direction = 1   # 移动方向
+        
+        #记分,外星人基础点数
+        self.alien_points = 50
 
     def increase_speed(self):
         '''提速部分.所有速度因素都乘以提升比例'''
         self.ship_speed_factor *= self.speedup_scale
         self.bullet_speed_factor *= self.speedup_scale
         self.alien_speed_factor *= self.speedup_scale
+        
+        self.alien_points = int(self.alien_points * self.score_scale)   #用int是为让分数为整数
+        print('目前单个外星人分值：\n',self.alien_points) #后台显示

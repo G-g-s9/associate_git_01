@@ -4,11 +4,13 @@
 '''
 
 import pygame       # 导入pygame模块
+from pygame.sprite import Sprite
 
-class Ship():
+class Ship(Sprite):
     # ~ '''飞船的图像、大小、位置、移动速度等属性'''
     def __init__(self,ai_settings,screen):
         '''初始化飞船便设置其初始位置'''
+        super().__init__()     #继承Sprite的属性方法
         self.screen = screen    # 传递屏幕参数
         self.ai_settings = ai_settings  # 传递设置里的飞船速度参数
 

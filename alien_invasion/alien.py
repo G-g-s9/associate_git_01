@@ -1,5 +1,5 @@
 import pygame
-from pygame.sprite import Sprite
+from pygame.sprite import Sprite    #不止一个时需要
 
 class Alien(Sprite):
     '''初始化外星人相应属性并确定其起始位置'''

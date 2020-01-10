@@ -2,7 +2,8 @@
 显示event.key，则是ASCII码值
 显示event，则是（下面a键event）
 <Event(2-key Down {'unicode':'a', 'key': 97, 'mod': 4096, 'scancode': 38, 'window': None})>
-'''import sys
+'''
+import sys
 import pygame
 
 def run_textkey():
