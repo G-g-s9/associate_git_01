@@ -22,7 +22,7 @@ def run_game():
     ai_settings =Settings() # 调用类设置实例
     screen = pygame.display.set_mode(
         (ai_settings.screen_width,ai_settings.screen_height))     # 建立给screen,宽、高为文件Settings中对应值
-    pygame.display.set_caption("Alien Invasion      中文名：外星人入侵")    # 标题换不了行呢
+    pygame.display.set_caption("Alien Invasion    中文名：外星人入侵(按【q】可退出)")    # 标题换不了行呢
 
     # 创建一个用于存储游戏统计信息的实例
     stats = GameStats(ai_settings)

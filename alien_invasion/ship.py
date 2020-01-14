@@ -22,8 +22,8 @@ class Ship(Sprite):
         self.image = pygame.transform.scale(self.image,(ai_settings.ship_h,ai_settings.ship_h*1)) # 找来素材图太大，调整为49px*49px
         self.image = pygame.transform.rotate(self.image,180)    # 旋转，剑尖朝上
 
-        self.rect = self.image.get_rect()   # 获得 素材图rect对象属性(传递参数，这里就用到宽高
-        self.screen_rect =screen.get_rect() # 获得 屏幕rect对象属性(传递宽高
+        self.rect = self.image.get_rect()   # 获得 素材图Rect对象属性(传递参数，Rect是专门存储矩形坐标的
+        self.screen_rect =screen.get_rect() # 获得 屏幕Rect对象属性(传递宽高.该函数获得矩形对象（Rect）默认以 (0, 0) 为起点，所以后面要重新定位
 
         # 起始位置——将每艘飞船放在屏幕底部居中
         self.rect.centerx = self.screen_rect.centerx    # 屏幕的水平中心值 赋给 素材图水平中值。即以 屏幕为参考系，素材图水平居中对齐
@@ -56,9 +56,17 @@ class Ship(Sprite):
         self.rect.centery = self.centery
 
     def center_ship(self):
-        '''飞船水平居中'''
-        self.centerx = self.screen_rect.centerx     # 教程里是self.center，少个x，无效改之
+        '''原飞船水平居中 改为 恢复初始底部居中'''
+        # ~ self.centerx = self.screen_rect.centerx     # 教程里是self.center，少个x，无效改之(全范围移动飞船舍弃这种)
+        # 起始位置——将每艘飞船放在屏幕底部居中
+        self.rect.centerx = self.screen_rect.centerx    # 屏幕的水平中心值 赋给 素材图水平中值。即以 屏幕为参考系，素材图水平居中对齐
+        self.rect.bottom = self.screen_rect.bottom      # 屏幕为参考系，素材图底对齐（y值）
+
+        # 在飞船的属性center中存储小数值,注意对应xy轴
+        self.centerx =float(self.rect.centerx)
+        self.centery =float(self.rect.centery)
 
     def blitme(self):
         '''在指定位置绘制飞船'''
         self.screen.blit(self.image,self.rect)      # 块传输。根据素材图rect属性（centerx，bottom）
+

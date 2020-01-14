@@ -20,10 +20,10 @@ def check_keydown_events(event,ai_settings,screen,ship,bullets):
     elif event.key == pygame.K_LEFT:    # 判断为方向左移键   这里可以用 elif是因为每个按下时间都会判断一次,同时按键两个键都会被识别出来
         ship.moving_left = True    # 左移标记为真
     # 下面这段相当于是上下移动开关
-    # ~ elif event.key == pygame.K_UP:    # 判断为up键
-        # ~ ship.moving_top = True    # 上移标记为真
-    # ~ elif event.key == pygame.K_DOWN:    # 判断为方down键
-        # ~ ship.moving_bottom = True    # 下移标记为真
+    elif event.key == pygame.K_UP:    # 判断为up键
+        ship.moving_top = True    # 上移标记为真
+    elif event.key == pygame.K_DOWN:    # 判断为方down键
+        ship.moving_bottom = True    # 下移标记为真
 
     # 追加子弹的空格响应
     elif event.key == pygame.K_SPACE:   # 判断为方向空格键
@@ -45,7 +45,7 @@ def check_keyup_events(event,ship):   # 弹起不需添加子弹相关属性
 
 def check_events(ai_settings,screen,ship,bullets,stats,play_button,aliens,sb):
     '''响应按键和鼠标事件'''
-    for event in pygame.event.get():        # 有事件发生就进入for循环
+    for event in pygame.event.get():        # 捕捉 有事件发生就进入for循环
         if event.type == pygame.QUIT:       # 点击窗口关闭按钮,将检测到 pygame.QUIT 事件
             sys.exit()      # 触发 SystemExit 异常来退出程序
 
@@ -119,12 +119,11 @@ def ship_hit(stats,aliens,bullets,ai_settings,screen,ship,sb):
         aliens.empty()
         bullets.empty()
 
-        #创建一群新的外星人，并将飞船放到屏幕底部中央
-        create_fleet(ai_settings,screen,aliens,ship)
+        #将飞船放到屏幕底部中央，并创建一群新的外星人
         ship.center_ship()
-
-        #暂停
-        sleep(0.5)  #推迟 0.5s调用线程，相当于进程挂起的时间 0.5s
+        sleep(0.5)  #暂停(给玩家缓冲时间 #推迟 0.5s调用线程，相当于进程挂起的时间 0.5s
+        create_fleet(ai_settings,screen,aliens,ship)
+        
 
     else:
         stats.game_active = False   #活动标志变为非
@@ -224,11 +223,16 @@ def check_bullet_alien_colisions(ai_settings,screen,aliens,ship,bullets,stats,sb
         bullets.empty() #清空子弹集
         ai_settings.increase_speed()    #清空一遍后，速度就提升一次
         
+        # ~ stats.game_active == False  #和下面的true想卡一下画面等切换（感觉没必要
         #玩家等级加一
         stats.level += 1
         sb.prep_level() #实时更新下等级
         
+        ship.center_ship()  #飞船回到初始位置（防止直接和新外星人直接碰上
+        sleep(0.5)  #暂停(给玩家缓冲时间 #推迟 0.5s调用线程，相当于进程挂起的时间 0.5s
+        
         create_fleet(ai_settings,screen,aliens,ship)    #重新创建外星人群
+        # ~ stats.game_active == True
 
 def check_aliens_bottom(stats,aliens,bullets,ai_settings,screen,ship,sb):
     '''检查有无外星人触底，冲破防线'''

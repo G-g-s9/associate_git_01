@@ -9,7 +9,7 @@ class Settings():
         # 屏幕设置-窗口、背景等
         self.screen_width = 900     # 宽数值
         self.screen_height = 600        # 高数值
-        self.bg_color = (7,173,187)   # 背景色 RGB值 青绿
+        self.bg_color = (7,173,187)   # 背景色 RGB值 青绿（注意是元组
 
         # 飞船设置
         # ~ self.ship_speed_factor = 1.4    # 设置飞船速度因素值（接受浮点数,可以相对微调）,移入动态参数里了
@@ -28,7 +28,7 @@ class Settings():
         # ~ self.alien_speed_factor = 1 # 外星人速度因素(接受浮点型)，默认远小于飞船（难度低，上手简单 后移入动态参数中
         self.fleet_drop_speed = 10  # 舰队向下闪现速度，y方向，碰到屏幕边缘调用
         # fleet_directtion为1表示右移，为-1表示左移
-        # ~ self.fleet_direction = 1   # 移动方向 后移入动态参数中
+        self.fleet_direction = 1   # 移动方向 后移入动态参数中
 
         #控制整体游戏节奏参数
         self.speedup_scale = 1.1        #速度提升比例factor
@@ -40,7 +40,7 @@ class Settings():
 
     def initialize_dynamic_settings(self):
         '''初始化动态变化设置属性，随游戏变动,这里算是动态参数的初始值'''
-        self.ship_speed_factor = 1.4    # 设置飞船速度因素值（接受浮点数,可以相对微调）
+        self.ship_speed_factor = 2.4    # 设置飞船速度因素值（接受浮点数,可以相对微调）
         self.bullet_speed_factor = 3    # 设置子弹速度因素值（接受浮点数,默认比飞船速度低,为了游戏操作体验友善些）
         self.alien_speed_factor = 1 # 外星人速度因素(接受浮点型)，默认远小于飞船（难度低，上手简单
 

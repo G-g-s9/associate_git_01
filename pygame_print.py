@@ -6,6 +6,8 @@
 import sys
 import pygame
 
+from ship import Ship # 导入ship.py模块中的Ship类 拿过来查看ship类属性(用完删ship)
+
 def run_textkey():
     '''每当检测到 pygame.KEYDOWN 事件时都打印属性 event.key，结果显示的是ascii码值'''
     pygame.init()       #初始化
@@ -14,10 +16,10 @@ def run_textkey():
 
     gt = pygame.font.Font(None,28)   #建立字体对象，并初始化参数
     screen.fill((149,249,199))      #先变色，算是初始等待页，加载页
-
+    s =   Ship()
 
     while True:
-
+        print(s.__dict__)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
