@@ -549,9 +549,23 @@ echo [字符串 | $变量]		echo 字符串 直接输出字符串；echo $SHELL �
 
 
 
+开机时间减短
+sudo gedit /etc/systemd/system.conf 或 sudo vim /etc/systemd/system.conf
+系统复位默认等待时间,默认90s将这两句话取消注释并且，将时间改小
+DefaultTimeoutStartSec=1s
+DefaultTimeoutStopSec=1s
 
+取消开机动画，显示自检代码
+sudo gedit /etc/default/grub
+系统启动项-添加内核启动参数，默认quiet splash
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+updata开机方式
+sudo update-grub	更新下这个代码（猜测是确定覆盖原有固件中
 
-
+启动自建Gnome失败
+https://blog.csdn.net/qq_28612967/article/details/102838894
+df -h	挂载点是100%，需要清理一下
+sudo apt autoremove --purge snapd 	会安装一个60M左右，然后手动重启
 
 
 常用命令及技巧编辑
