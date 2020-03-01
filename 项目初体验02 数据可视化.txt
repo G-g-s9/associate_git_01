@@ -1,0 +1,49 @@
+安装 matplotlib
+① sudo apt-get install python3-matplotlib
+
+②【采用】 如果安装了较新的 Python 版本,就必须安装 matplotlib 依赖的一些库
+sudo apt-get install python3.5-dev python3.5-tk tk-dev
+sudo apt-get install libfreetype6-dev g++
+使用 pip 来安装 matplotlib
+pip install --user matplotlib（附加-i 临时指定阿里云）
+pip3 install --user matplotlib -i https://mirrors.aliyun.com/pypi/simple/ 
+
+
+显示中文
+/home/g/.local/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
+/home/g/.local/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf
+
+
+cp dir1/a.doc dir2 表示将dir1下的a.doc文件复制到dir2目录下
+cp -r dir1 dir2 表示将dir1及其dir1下所包含的文件复制到dir2下
+
+如有希腊字母要显示除了字符串引号还要套一层$$,如"$ωαβγδεζηθλμνπρσφ$"
+
+【附录】
+
+一些中文字体的英文名
+
+宋体	SimSun
+黑体	SimHei
+微软雅黑	Microsoft YaHei
+微软正黑体	Microsoft JhengHei
+新宋体	NSimSun
+新细明体	PMingLiU
+细明体	MingLiU
+标楷体	DFKai-SB
+仿宋	FangSong
+楷体	KaiTi
+隶书	LiSu
+幼圆	YouYuan
+华文细黑	STXihei
+华文楷体	STKaiti
+华文宋体	STSong
+华文中宋	STZhongsong
+华文仿宋	STFangsong
+方正舒体	FZShuTi
+方正姚体	FZYaoti
+华文彩云	STCaiyun
+华文琥珀	STHupo
+华文隶书	STLiti
+华文行楷	STXingkai
+华文新魏	STXinwei

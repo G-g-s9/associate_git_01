@@ -9,6 +9,15 @@ Python 将非空字符串解读为 True；空为 False
 绝对路径通常比相对路径长很多
 在 Pygame 中，原点 (0, 0) 位于屏幕左上角，向右下方移动时，坐标值将增大。
 
+
+更改Ubuntu默认python版本
+update-alternatives --list python	#显示所有已装Python版本（一开始可能没有，可跳过本步）
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1	#将2.7版本加入，优先级设为1 （低）
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2	#将3.6版本加入，优先级设为2 （高）
+已经OK，如想切换低版优先 sudo update-alternatives --config python
+【慎用，我就先不删了 sudo apt-get remove --purge python2.7 
+
+
 python
 pycham
 VMware
