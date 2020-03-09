@@ -1,7 +1,7 @@
-************专有名词***********
+﻿************专有名词***********
 
-*******	在非英语国家的Python程序员，请使用英文写注释
-	除非你120%的确信你的代码不会被使用其他语言的人阅读	*******
+******* 在非英语国家的Python程序员，请使用英文写注释
+    除非你120%的确信你的代码不会被使用其他语言的人阅读 *******
 
 对于Python来说，程序、脚本或者软件都是指同一个东西
 Python 将非空字符串解读为 True；空为 False
@@ -11,9 +11,9 @@ Python 将非空字符串解读为 True；空为 False
 
 
 更改Ubuntu默认python版本
-update-alternatives --list python	#显示所有已装Python版本（一开始可能没有，可跳过本步）
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1	#将2.7版本加入，优先级设为1 （低）
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2	#将3.6版本加入，优先级设为2 （高）
+update-alternatives --list python   #显示所有已装Python版本（一开始可能没有，可跳过本步）
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1  #将2.7版本加入，优先级设为1 （低）
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2  #将3.7版本(最新版本号)加入，优先级设为2 （高）
 已经OK，如想切换低版优先 sudo update-alternatives --config python
 【慎用，我就先不删了 sudo apt-get remove --purge python2.7 
 
@@ -26,58 +26,58 @@ macOS
 Anaconda——Spyder
 CentOS
 Ubuntu
-xshell	安全终端模拟器（个人使用免费）
-	shell=terminal
-Console	控制台	#显示系统消息的。   Linux中默认虚拟终端都是控制台
-terminal	终端
-Shell	命令行解释器
-confirm	确认
-verify	验证核实
-response	响应反应
-repeat	反复
-polling	轮询 探询
-arg	自变量
+xshell  安全终端模拟器（个人使用免费）
+    shell=terminal
+Console 控制台 #显示系统消息的。   Linux中默认虚拟终端都是控制台
+terminal    终端
+Shell   命令行解释器
+confirm 确认
+verify  验证核实
+response    响应反应
+repeat  反复
+polling 轮询 探询
+arg 自变量
 
 
 
 
 
 符号中英文对照
-#	pond character英镑符  /  octothorpe八角帽
-+	plus
--	minus
-/	slash  （\ back slash）
-*	asterisk
-%	percent（求模运算符）
-<	less-than
->	greater-than
-<=	less-than-equal
->=	greater-than-equal
-==	equal			数字比较时注意其类型是int还是str，非特殊情况下，建议使用强制类型转换str（）∵默认键盘录入的是字符
-!=	inequal
+#   pond character英镑符  /  octothorpe八角帽
++   plus
+-   minus
+/   slash  （\ back slash）
+*   asterisk
+%   percent（求模运算符）
+<   less-than
+>   greater-than
+<=  less-than-equal
+>=  greater-than-equal
+==  equal           数字比较时注意其类型是int还是str，非特殊情况下，建议使用强制类型转换str（）∵默认键盘录入的是字符
+!=  inequal
 
-import random			# [ 0 , 1 ) 的随机数
-	random.random（）
+import random           # [ 0 , 1 ) 的随机数
+    random.random（）
 
 ++++++++++++ 运算符·优先级 +++++++++++
-￥运算符说明	￥Python运算符			￥优先级
-索引运算符	x[index] 或 x[index:index2[:index3]]	18、19
-属性访问		x.attrbute 				17
-乘方		**				16
-按位取反		~				15
-符号运算符	+（正号）或 -（负号）		14
-乘、除		*、/、//、%			13
-加、减		+、-				12
-位移		>>、<<				11
-按位与		&				10
-按位异或		^				9
-按位或		|				8
-比较运算符	==、!=、>、>=、<、<= 		7
-is 运算符		is、is not				6
-in 运算符		in、not in				5
-逻辑非		not				4
-逻辑与		and				3
-逻辑或		or				2
+￥运算符说明  ￥Python运算符          ￥优先级
+索引运算符   x[index] 或 x[index:index2[:index3]] 18、19
+属性访问        x.attrbute              17
+乘方      **              16
+按位取反        ~               15
+符号运算符   +（正号）或 -（负号）        14
+乘、除     *、/、//、%            13
+加、减     +、-             12
+位移      >>、<<               11
+按位与     &               10
+按位异或        ^               9
+按位或     |               8
+比较运算符   ==、!=、>、>=、<、<=         7
+is 运算符      is、is not               6
+in 运算符      in、not in               5
+逻辑非     not             4
+逻辑与     and             3
+逻辑或     or              2
 
 
 
@@ -85,133 +85,133 @@ in 运算符		in、not in				5
 
 π/4≈（1/2+1/3）-1/3*（1/2**3+1/3**3）+1/5（1/2**5+1/3**5）-......
 
-	输出小数位数调整
+    输出小数位数调整
 方法一：round(X, N)
-	该方法并不严格有效，当X小数位数n<N时，仅能够输出n位小数。
+    该方法并不严格有效，当X小数位数n<N时，仅能够输出n位小数。
 方法二（不建议）：print('%.Nf'%X)或者print("%.Nf"%X)
-	注意该方法有两个“%”，没有“，”。
+    注意该方法有两个“%”，没有“，”。
 方法三：print(format(X, '.Nf')或者print(format(X,".Nf")
-	注意该方法没有"%"，但有“，”。
+    注意该方法没有"%"，但有“，”。
 高精度使用decimal模块，配合getcontext
 from decimal import *
-getcontext().prec = 28	# 默认值28位
+getcontext().prec = 28  # 默认值28位
 decimal.Decimal() 
 
-（有理数）.as_integer_ratio()	# 方法；有理数转化为分数的（分子，分母）
-replace（原字符串，替换后字符串）	# 方法；替换
+（有理数）.as_integer_ratio()    # 方法；有理数转化为分数的（分子，分母）
+replace（原字符串，替换后字符串）    # 方法；替换
 
-复数complex	程序中用的是j（代替数学里的i）
+复数complex   程序中用的是j（代替数学里的i）
 
 time模块
-time.time()	时间戳，是个float
-time.localtime(time.time())	时间戳格式化为本地时间（冗长）
-time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))	优化版（常见形式）  
+time.time() 时间戳，是个float
+time.localtime(time.time()) 时间戳格式化为本地时间（冗长）
+time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))  优化版（常见形式）  
 
-if __name__ == '__main__':	称之为程序入口;__name__是内置变量，可用于表示当前模块的名字（即调用含有这句的模块时，这句之后的程序不被执行）;用来剔除导入模块的重复输出
+if __name__ == '__main__':  称之为程序入口;__name__是内置变量，可用于表示当前模块的名字（即调用含有这句的模块时，这句之后的程序不被执行）;用来剔除导入模块的重复输出
 
 
 概念
-方法	紧跟对象后，直接改变对象本身。如：.title()
-函数	有点像临时性映射，不保存的中间变量一般。如：set()
-语句	直接是命令。如：del、import
+方法  紧跟对象后，直接改变对象本身。如：.title()
+函数  有点像临时性映射，不保存的中间变量一般。如：set()
+语句  直接是命令。如：del、import
 
-源代码	→→编译→→	字节码（与平台无关的字节指令.pyc，默认隐藏）	→PVM运行→自动编译 解释
-#	各种注释表示，#、'、''、'''、\rddfd
+源代码 →→编译→→  字节码（与平台无关的字节指令.pyc，默认隐藏）    →PVM运行→自动编译 解释
+#   各种注释表示，#、'、''、'''、\rddfd
 
 ①
-string	字符串
+string  字符串
 
-.title()	首字母大写，其余小写
-.upper()	全部大写
-.lower()	全部小写
-.rstrip()	右侧（末尾）开始删多余空格
-.lstrip()	左侧（开头）开始删多余空格
-.strip()	两端开始删多余空格
-+	字符串直接拼接，必须都是字符型。扩展str()函数
-split()	方法；根据一个字符串创建一个单词列表； 以换行符、空格、Tab为分隔符，且单独空格认为是空内容不单独记录
-count()	方法；统计某个字符/字符串个数
+.title()    首字母大写，其余小写
+.upper()    全部大写
+.lower()    全部小写
+.rstrip()   右侧（末尾）开始删多余空格
+.lstrip()   左侧（开头）开始删多余空格
+.strip()    两端开始删多余空格
++   字符串直接拼接，必须都是字符型。扩展str()函数
+split() 方法；根据一个字符串创建一个单词列表； 以换行符、空格、Tab为分隔符，且单独空格认为是空内容不单独记录
+count() 方法；统计某个字符/字符串个数
 
-.format()	字符串格式化
-		^, <, > 分别是居中、左对齐、右对齐，后面带宽度， : 号后面带填充的字符，只能是一个字符，不指定则默认是用空格填充。
+.format()   字符串格式化
+        ^, <, > 分别是居中、左对齐、右对齐，后面带宽度， : 号后面带填充的字符，只能是一个字符，不指定则默认是用空格填充。
 
-		+ 表示在正数前显示 +，负数前显示 -；  （空格）表示在正数前加空格
+        + 表示在正数前显示 +，负数前显示 -；  （空格）表示在正数前加空格
 
-		b、d、o、x 分别是二进制、十进制、八进制、十六进制。
+        b、d、o、x 分别是二进制、十进制、八进制、十六进制。
 
-		此外我们可以使用大括号 {} 来转义大括号
- 	"{1} {0} {1}".format("hello", "world")  # 设置指定位置
-		'world hello world'
-	my_list = ['菜鸟教程', 'www.runoob.com']
-	print("网站名：{0[0]}, 地址 {0[1]}".format(my_list))  # "0" 是必须的
+        此外我们可以使用大括号 {} 来转义大括号
+    "{1} {0} {1}".format("hello", "world")  # 设置指定位置
+        'world hello world'
+    my_list = ['菜鸟教程', 'www.runoob.com']
+    print("网站名：{0[0]}, 地址 {0[1]}".format(my_list))  # "0" 是必须的
 
 ②
-list	列表
-[<元素值>,<元素值>,<元素值>]		#元素值必须是确实有的。如‘字符串’
+list    列表
+[<元素值>,<元素值>,<元素值>]     #元素值必须是确实有的。如‘字符串’
 
 *********索引0开头，必须是int，可负数（指倒数第几）；而元素值类型不一定统一**********
 
-.append(<元素值>)	#方法；堆栈形式的添加到末位，-1
-.insert(<索引>，<元素值>)	#方法；指定位置插入
-del <具体索引>	#语句；指定位置删除，后面元素集体左移一位
-.pop（<索引>）	#方法；弹出（无传参时，默认最后一个）指定位置元素，需立即赋值用掉（存储），不然就丢了
-.remove(<索引>)	#方法；移除指定值（需注意的是只删除第一个出现的该值）
+.append(<元素值>)  #方法；堆栈形式的添加到末位，-1
+.insert(<索引>，<元素值>) #方法；指定位置插入
+del <具体索引>  #语句；指定位置删除，后面元素集体左移一位
+.pop（<索引>）  #方法；弹出（无传参时，默认最后一个）指定位置元素，需立即赋值用掉（存储），不然就丢了
+.remove(<索引>)   #方法；移除指定值（需注意的是只删除第一个出现的该值）
 
-.sort（）/.sort（reverse=True）		#方法；按字Unicode码顺序（升序）/逆序（降序）排列，破坏原始排序；注意字母数字符号可简单按ASCII码值顺序来，中文不是拼音而是
-sorted（）	#函数；相当于临时排序输出，源列表排序不动；注，输出的是列表（元组输入列表输出）
+.sort（）/.sort（reverse=True）     #方法；按字Unicode码顺序（升序）/逆序（降序）排列，破坏原始排序；注意字母数字符号可简单按ASCII码值顺序来，中文不是拼音而是
+sorted（）    #函数；相当于临时排序输出，源列表排序不动；注，输出的是列表（元组输入列表输出）
 sorted(d1.items(),key = lambda x:x[0],reverse = True)　　　　　　　　
-	# reverse = True：是递减顺序输出，不写默认是升序输出；key = lambda x:x[0]表示在d1.items()的输出内容中的第一列作为排序依据，如果是按照value排序则改成x[1]即可。
+    # reverse = True：是递减顺序输出，不写默认是升序输出；key = lambda x:x[0]表示在d1.items()的输出内容中的第一列作为排序依据，如果是按照value排序则改成x[1]即可。
 
-.reverse()		#方法；直接当前列表反序
+.reverse()      #方法；直接当前列表反序
 
-range（<初始值>,<极限值>，<步长·可选>）	#函数；值都是int，极限值取不到
-list（）	#函数；
-min()	#函数；数列最小值
-max()	#函数；数列最大值
-sum()	#函数；数列元素求和
+range（<初始值>,<极限值>，<步长·可选>）  #函数；值都是int，极限值取不到
+list（）  #函数；
+min()   #函数；数列最小值
+max()   #函数；数列最大值
+sum()   #函数；数列元素求和
 
 ↓遍历列表
-<列表名> = [<循环执行语句> for <循环变量> in range()]	#解析列表  （不同于C，for循环的变量不用提前定义，默认从 0 开始到 极限值-1 为止）
-<列表名>[<初始值·可选>:<极限值·可选>]	#切片slice；两个值和冒号需注意，如：2-5元素的切片为[1:5]；无初始值默认表头表尾（作为复制全列表，相当于创建了一个副本。但如无必要，就不建副本）；可负数，int
+<列表名> = [<循环执行语句> for <循环变量> in range()]    #解析列表  （不同于C，for循环的变量不用提前定义，默认从 0 开始到 极限值-1 为止）
+<列表名>[<初始值·可选>:<极限值·可选>]    #切片slice；两个值和冒号需注意，如：2-5元素的切片为[1:5]；无初始值默认表头表尾（作为复制全列表，相当于创建了一个副本。但如无必要，就不建副本）；可负数，int
 *********请使用↑的方法复制列表<列表名1> = <列表名0>[:]；而直接<列表名1> = <列表名0>是关联到同一个列表，相当于2对1的映射关系**********
 
 
-tuple		元组：相当于不支持元素分配修改（只能重新赋值整个列表）的 列表；圆括号列表形式；索引还是方括号（不要和集合混淆。集合-无重复列表）
+tuple       元组：相当于不支持元素分配修改（只能重新赋值整个列表）的 列表；圆括号列表形式；索引还是方括号（不要和集合混淆。集合-无重复列表）
 
 ↓条件测试
 if conditional_test:
-	do something
+    do something
 elif conditional_test2:
-	do sth			任意数量的elif，else可省
+    do sth          任意数量的elif，else可省
 elif congditional_test3
-	do sth
+    do sth
 .
 .
 .
 else:
-	do sth
+    do sth
 
 
-********	全角占两个字节，半角占一个字节。半角全角主要是针对标点符号来说的，全角标点占两个字节，半角占一个字节，而不管是半角还是全角，汉字都还是要占两个字节
+********    全角占两个字节，半角占一个字节。半角全角主要是针对标点符号来说的，全角标点占两个字节，半角占一个字节，而不管是半角还是全角，汉字都还是要占两个字节
 
 字典dictionary（无序的）
-字典名 = {'键名1':值,'键名2':值,'键名3':值}	键名字符串，值类型多样可取（数字、字符串、列表乃至字典），键值对数量不限（理论上）
-字典名['键名'] = 值	添加修改键值对类似列表，但没有方法而是直接复制加入，删除用del语句
-.items	#方法；键-值 对列表（用于 遍历字典内容）
-.key()	#方法；单独针对键（for循环时，可写可不写，默认单参就是键），返回的是键的列表
-.values()	#方法；返回的是值的列表
-set()	#函数；集合——输出元素独一无二的列表
+字典名 = {'键名1':值,'键名2':值,'键名3':值} 键名字符串，值类型多样可取（数字、字符串、列表乃至字典），键值对数量不限（理论上）
+字典名['键名'] = 值   添加修改键值对类似列表，但没有方法而是直接复制加入，删除用del语句
+.items  #方法；键-值 对列表（用于 遍历字典内容）
+.key()  #方法；单独针对键（for循环时，可写可不写，默认单参就是键），返回的是键的列表
+.values()   #方法；返回的是值的列表
+set()   #函数；集合——输出元素独一无二的列表
 
 
-#*#**#*#*#*	内置函数【完整】	*#*#*#*#*#*#
+#*#**#*#*#* 内置函数【完整】    *#*#*#*#*#*#
 
-print(*objects, sep='  ', end='\n', file=sys.stdout, flush=False)	# sep分隔符；end结束；file输出格式；flush缓存
+print(*objects, sep='  ', end='\n', file=sys.stdout, flush=False)   # sep分隔符；end结束；file输出格式；flush缓存
 
 
 ************  input()、while、break、continue  ***********
-input()	#函数；暂停，等用户输入；括号内可加入提示语（字符串或是提前设好的变量名），直接打印显示
-while	#常与标志一起使用；一般用来针对‘全部（反复）’。如清空类表中某一重复值
-break	#语句；直接结束当前层次下的循环，而exit()是直接结束整个程序
-continue	#语句；忽略循环余下代码，并继续
+input() #函数；暂停，等用户输入；括号内可加入提示语（字符串或是提前设好的变量名），直接打印显示
+while   #常与标志一起使用；一般用来针对‘全部（反复）’。如清空类表中某一重复值
+break   #语句；直接结束当前层次下的循环，而exit()是直接结束整个程序
+continue    #语句；忽略循环余下代码，并继续
 
 
 
@@ -223,27 +223,27 @@ continue	#语句；忽略循环余下代码，并继续
 **给形参指定默认值时，等号“=”两边不要有空格；对于函数调用中的关键字实参，也应遵循这种约定
 
 
-def 自定义函数名(形参1<= 默认值1>，形参2< = 默认值2>，形参n< = 默认值n>):		定义部分；有形参的函数，调用时需要实参数据（值），默认位置实参（顺序对应），最好直接关键字实参（不易混淆但形参名不要错），也可直接赋值当默认值；形参前加*（如：def f （*args）），表示接受一个tuple类型（元组）；形参前加**，表示接受一个dict类型（字典），如：def f（**kargs）,接受f（a=1，b=2），输出{'a':1,'b':2}
-	"""文档字符串"""		称为 docstring 的注释
-	函数体			定义好被调用执行程序部分
-定义好的函数名(形参n=实参n)		调用函数  有值的赋值
+def 自定义函数名(形参1<= 默认值1>，形参2< = 默认值2>，形参n< = 默认值n>):      定义部分；有形参的函数，调用时需要实参数据（值），默认位置实参（顺序对应），最好直接关键字实参（不易混淆但形参名不要错），也可直接赋值当默认值；形参前加*（如：def f （*args）），表示接受一个tuple类型（元组）；形参前加**，表示接受一个dict类型（字典），如：def f（**kargs）,接受f（a=1，b=2），输出{'a':1,'b':2}
+    """文档字符串"""     称为 docstring 的注释
+    函数体         定义好被调用执行程序部分
+定义好的函数名(形参n=实参n)        调用函数  有值的赋值
 
-return 变量名	#语句；结束函数调用（可以有多个但只要执行了一个就不执行下面的了），并返回值（直接赋值给变量保存下来）
-*形参名		建立一个形参名空元组，可接受任意数量的实参（若有其他类型的形参，这个置后压轴）
-**形参名		建立一个形参名空字典，可接受任意数量的实参
+return 变量名  #语句；结束函数调用（可以有多个但只要执行了一个就不执行下面的了），并返回值（直接赋值给变量保存下来）
+*形参名        建立一个形参名空元组，可接受任意数量的实参（若有其他类型的形参，这个置后压轴）
+**形参名       建立一个形参名空字典，可接受任意数量的实参
 
 
 ************  模块（联合import语句使用）  ***********
 
 同一目录下的程序，用 import 模块名 可读取调用模块中定义好的所有全局变量、所有定义函数/类等
-import 模块名		#这种模块一般是单一功能模块，如只有一个定义函数
-引用时  模块名.变量名/模块名.函数名  	# 句点表示法，引用
+import 模块名      #这种模块一般是单一功能模块，如只有一个定义函数
+引用时  模块名.变量名/模块名.函数名    # 句点表示法，引用
 
 也可以只导入模块中的指定函数
-from 模块名 import 函数名1,函数名2,函数名3	#就像它是在这个文件中定义的一样,可直接使用函数，无需句点表示
+from 模块名 import 函数名1,函数名2,函数名3  #就像它是在这个文件中定义的一样,可直接使用函数，无需句点表示
 
 导入模块所有函数
-from 模块名 import *		#导入所有函数的情况下，可直接使用函数，无需句点表示；大型模块慎用此法，以防函数名冲突问题
+from 模块名 import *       #导入所有函数的情况下，可直接使用函数，无需句点表示；大型模块慎用此法，以防函数名冲突问题
 
 （常用）指定调用 函数/模块 别名 as  
 from 模块名 import 函数名1 as 别名   /   import 模块名 as 别名
@@ -255,16 +255,16 @@ from 模块名 import 函数名1 as 别名   /   import 模块名 as 别名
 类名应采用 驼峰命名法 ，即将类名中的每个单词的首字母都大写，而不使用下划线。实例名和模块名都采用小写格式，并在单词之间加上下划线。
 类中的函数称为 方法（除了调用方法差异，和函数基本没差）
 
-__init__	#方法；这是一个特殊方法，每次创建实例python都会自动运行的默认方法；必须包含形参self，且必置首位（指向实例本身的引用，类中方法调用都会自动传递实参self）；需注意的是，属性变量必须都包含在此
+__init__    #方法；这是一个特殊方法，每次创建实例python都会自动运行的默认方法；必须包含形参self，且必置首位（指向实例本身的引用，类中方法调用都会自动传递实参self）；需注意的是，属性变量必须都包含在此
 以 self 为前缀的变量都可供类中的所有方法使用，如self.name这样可通过实例访问的变量称为 属性（存储在类结构的属性中，故全类中都可用；可以是协同的小类）
-	**在 Python 2.7 中创建类时，需要做细微的修改 —— 在括号内包含单词 object ，例：class Dog(object):
-									  --snip--
-变量名=类名（实参值）	#创建实例
+    **在 Python 2.7 中创建类时，需要做细微的修改 —— 在括号内包含单词 object ，例：class Dog(object):
+                                      --snip--
+变量名=类名（实参值） #创建实例
 
 
 继承——创建子类时，父类必须包含在当前文件中，且位于子类前面；子类中重写父类方法，则子类实例条用重写后的
 ●子类名（父类名）：
-●super().__init__(所有属性)	#super()特殊函数；调用父类（别名:超类）的__init__()方法（相当于引用已有类及其属性）
+●super().__init__(所有属性) #super()特殊函数；调用父类（别名:超类）的__init__()方法（相当于引用已有类及其属性）
 
 
 
@@ -276,8 +276,8 @@ __init__	#方法；这是一个特殊方法，每次创建实例python都会自�
 ************  异常  ***********
 
 通过预测可能发生错误的代码，可编写健壮的程序，它们即便面临无效数据或缺少资源，也能继续运行，从而能够抵御无意的用户错误和恶意的攻击。
-try-except-else		except可匹配多个异常名，如省略则可作为通配符；else如有，需置后于所有except
-pass		# 语句；直接通过，不通报异常
+try-except-else     except可匹配多个异常名，如省略则可作为通配符；else如有，需置后于所有except
+pass        # 语句；直接通过，不通报异常
 
 
 ************  存储|读取数据  ***********
@@ -289,7 +289,7 @@ json模块支持多种结构数据，便于多种语言之间分享数据
 ************  测试  *********** 
 导入unittest模块
 继承unittest.TestCase类，且其中的测试方法必须以test打头，这样测试方法才会自动调用（这里如果先有setUp()方法，则先setUp后test
-.assertEqual()	方法 断言
+.assertEqual()  方法 断言
 最后unittest.main()
 测试通过一个单元测试用例时，打印一个句点 . ；测试引发错误时打印一个 E ；测试导致断言失败时打印一个 F 
 
@@ -305,16 +305,16 @@ assertNotIn(item , list ) 核实 item 不在 list 中
 
 
 ************  python标准库  ***********
-模块 collections  —— 类 OrderedDict	记录添加键值对顺序（常用于有序字典）
+模块 collections  —— 类 OrderedDict    记录添加键值对顺序（常用于有序字典）
 
 
 文件调用(读取写入都是string，注意调用类型转换使用
-with open(同目录下文件名/路径文件名，模式实参) as file_object:		#with关键字，不在需要时python会自动关闭文件
-	
-open()	#函数；需注意的是，括号内的文件名或是路径地址都是字符串，要有引号  ；  读取模式 （ 'r' ）、 写入模式 （ 'w' ）、 附加模式 （ 'a' ）或让你能够读取和写入文件的模式（ 'r+' ）。默认的只读模式  ；  如果要写入的文件不存在，函数 open() 将自动创建它（注：以写入（ 'w' ）模式打开文件，如指定的文件已存在， Python 将在返回文件对象前清空原文件内容<可以拿来清空 ·全部· 历史记录>，一般选用附加模式‘a’添加新内容保险）
-read()	#方法；读取文件都是当做字符串；完全显示（待核实，没有具体说明）
-readlines()	#方法；读取每一行存到一个列表中
-write（）	#方法；直接写入内容（不自动提供换行符哦）
+with open(同目录下文件名/路径文件名，模式实参) as file_object:       #with关键字，不在需要时python会自动关闭文件
+    
+open()  #函数；需注意的是，括号内的文件名或是路径地址都是字符串，要有引号  ；  读取模式 （ 'r' ）、 写入模式 （ 'w' ）、 附加模式 （ 'a' ）或让你能够读取和写入文件的模式（ 'r+' ）。默认的只读模式  ；  如果要写入的文件不存在，函数 open() 将自动创建它（注：以写入（ 'w' ）模式打开文件，如指定的文件已存在， Python 将在返回文件对象前清空原文件内容<可以拿来清空 ·全部· 历史记录>，一般选用附加模式‘a’添加新内容保险）
+read()  #方法；读取文件都是当做字符串；完全显示（待核实，没有具体说明）
+readlines() #方法；读取每一行存到一个列表中
+write（） #方法；直接写入内容（不自动提供换行符哦）
 
 
 
@@ -323,8 +323,8 @@ write（）	#方法；直接写入内容（不自动提供换行符哦）
 缩进时多对齐自身，区别于其他行
 制表键Tab设置成4空格（首选项→编辑器→缩进中）
 行长设置不超72字符（首选项→编辑器→显示中）
-	——最初制定这样的指南时，在大多数计算机中，终端窗口每行只能容纳 79 字符；多个文件并排显示
-	——PEP 8 还建议注释的行长都不超过 72 字符，因为有些工具为大型项目自动生成文档时，会在每行注释开头添加格式化字符
+    ——最初制定这样的指南时，在大多数计算机中，终端窗口每行只能容纳 79 字符；多个文件并排显示
+    ——PEP 8 还建议注释的行长都不超过 72 字符，因为有些工具为大型项目自动生成文档时，会在每行注释开头添加格式化字符
 
 
 
@@ -336,7 +336,7 @@ visitor's_record.py 需要模块化函数化；运行的总标识数，须改正
 
 ————————————疑问————————————————
 三引号内的转义符，codec报语法错误，无法正常读出
-	最后发现是三引号和\x(或\xff之后的值)同时出现的锅，原因未知(猜测是转义或编译时，编码标准冲突造成的)。
+    最后发现是三引号和\x(或\xff之后的值)同时出现的锅，原因未知(猜测是转义或编译时，编码标准冲突造成的)。
 
 ？5个空格不超制表符
 
@@ -355,22 +355,22 @@ visitor's_record.py 需要模块化函数化；运行的总标识数，须改正
 
 
 转义符
-\(在行尾时)	续行符（注意是反斜杠，且不能拆程序里的完整单词，不然bug）
-\\	反斜杠符号       注意：相对路径时，在 Windows 系统中，在文件路径中使用反斜杠（ \ ）而不是linux中的斜杠（ / ）
-\'	单引号
-\"	双引号
-\a	响铃
-\b	退格(Backspace)
-\e	转义
-\000	空
-\n	换行
-\v	纵向制表符
-\t	横向制表符
-\r	回车		→换行光标停在上一行，再输出后面的，就覆盖掉了一行
-\f	换页
-\oyy	八进制数，yy代表的字符，例如：\o12代表换行
-\xyy	十六进制数，yy代表的字符，例如：\x0a代表换行
-\other	其它的字符以普通格式输出
+\(在行尾时) 续行符（注意是反斜杠，且不能拆程序里的完整单词，不然bug）
+\\  反斜杠符号       注意：相对路径时，在 Windows 系统中，在文件路径中使用反斜杠（ \ ）而不是linux中的斜杠（ / ）
+\'  单引号
+\"  双引号
+\a  响铃
+\b  退格(Backspace)
+\e  转义
+\000    空
+\n  换行
+\v  纵向制表符
+\t  横向制表符
+\r  回车      →换行光标停在上一行，再输出后面的，就覆盖掉了一行
+\f  换页
+\oyy    八进制数，yy代表的字符，例如：\o12代表换行
+\xyy    十六进制数，yy代表的字符，例如：\x0a代表换行
+\other  其它的字符以普通格式输出
 
 
 
@@ -379,48 +379,50 @@ visitor's_record.py 需要模块化函数化；运行的总标识数，须改正
 *********缩进是与前一行代码关联**********
 
 
-	# -*-  geany常用快捷键  -*-#
+    # -*-  geany常用快捷键  -*-#
 
-Ctrl+Alt+P	首选项
-Ctrl+E		行注释开关
-Ctrl+i/u		增加/减少缩进
-Alt+↑/↓		逐行移动（pageup/down是整页整页的）
-Ctrl+shift+C	复制当前行
-shift+Alt+L	选中当前行
-shift+Alt+W	选中当前词
-shift+Alt+P	选中当前段
-Ctrl+Alt+U	字母大小写互质（大小混合默认转小写）
-shift+Alt+D	插入时间
-F2		（焦点）切换到编辑器
-F7		切换到查找栏
-F4		切换到虚拟终端
-F6		切换到便签
-F11		全屏
-Ctrl+【  /  】	选择 上/下 一个单词片段（自设快捷）
-Ctrl+shift+M	标记全部
+Ctrl+Alt+P  首选项
+Ctrl+E      行注释开关
+Ctrl+i/u        增加/减少缩进
+Alt+↑/↓     逐行移动（pageup/down是整页整页的）
+Ctrl+shift+C    复制当前行
+shift+Alt+L 选中当前行
+shift+Alt+W 选中当前词
+shift+Alt+P 选中当前段
+Ctrl+Alt+U  字母大小写互质（大小混合默认转小写）
+shift+Alt+D 插入时间
+F2      （焦点）切换到编辑器
+F7      切换到查找栏
+F5      运行*常用*
+F3      <自设切换到信息窗口>
+F4      切换到虚拟终端
+F6      切换到便签
+F11     全屏
+Ctrl+【  /  】    选择 上/下 一个单词片段（自设快捷）
+Ctrl+shift+M    标记全部
 
-Ctrl+space	自动完成（？？）
-Ctrl+shift+space	显示函数原型
-Tab		单词片段完成
-Alt+←		转回上一个位置
-Alt+→		前进一个位置
-Ctrl+L		跳转到？？行
-Ctrl+B		跳转到对应花括号
-Ctrl+M		开关标记
-Ctrl+，（comma）	到上一个标记<
-Ctrl+。（period）	到下一个标记>
-Ctrl+T		跳转到符号定义
-Ctrl+shift+T	跳转到符号声明
-Ctrl+/slash	跳转到前一个词
-Ctrl+\backslash	跳转到下一个词
-Ctrl+shift+R	重新载入符号列表
-F8		编译（.pyc）
-F9		生成
-shift+F9		生成全部
-Ctrl+shift+F9	生成自定义目标
-shift+F8		生成目标文件
-F5		运行
-Ctrl+C		停止
+Ctrl+space  自动完成（？？）
+Ctrl+shift+space    显示函数原型
+Tab     单词片段完成
+Alt+←       转回上一个位置
+Alt+→       前进一个位置
+Ctrl+L      跳转到？？行
+Ctrl+B      跳转到对应花括号
+Ctrl+M      开关标记
+Ctrl+，（comma）   到上一个标记<
+Ctrl+。（period）  到下一个标记>
+Ctrl+T      跳转到符号定义
+Ctrl+shift+T    跳转到符号声明
+Ctrl+/slash 跳转到前一个词
+Ctrl+\backslash 跳转到下一个词
+Ctrl+shift+R    重新载入符号列表
+F8      编译（.pyc）
+F9      生成
+shift+F9        生成全部
+Ctrl+shift+F9   生成自定义目标
+shift+F8        生成目标文件
+F5      运行
+Ctrl+C      停止
 
 
 
@@ -435,63 +437,81 @@ git本地切换分支，同一个文件夹里对应文件也会变动呢（好�
 
 #初始配置
 配置用户名和密码--global（全局的）
-git config --global user.name	你的用户名 #用户名
-git config --global user.email	你的邮箱 #邮箱
-git config --global -l		查看用户名和邮箱
-	
+git config --global user.name   你的用户名 #用户名
+git config --global user.email  你的邮箱 #邮箱
+git config --global -l      查看用户名和邮箱
+    
 重新登录用户名和密码
 git config --system --unset credential.helper
 git clone 网址
 
 配置公钥SSH
-ssh-keygen -t rsa -C "这里填写你设置的邮箱地址"	
+ssh-keygen -t rsa -C "这里填写你设置的邮箱地址" 
 关联github和本地git仓
 git remote add origin <https://github.com/Gg-s9/associate_git_01.git(你Github上创建好的仓库的地址)>
 
 #添加
 git add -A  提交所有变化至暂存
-git add -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)，至暂存
-git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件，至暂存
+        -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)，至暂存
+        .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件，至暂存
 
-git commit -m "string"	提交变更，-m是添加后缀的备注信息用的；另，可结合上面的add成git commit -am “备注说明”
+git commit -m "string"  提交变更，-m是添加后缀的备注信息用的；另，可结合上面的add成git commit -am “备注说明”
 #删除
-git rm -r --cached 文件名/路径	删除文件   使用-r参数删除目录, git rm --cached a.txt 删除的是本地仓库中的文件，且本地工作的文件会保留且不再与远程仓库发生跟踪关系，如果本地仓库中的文件也要删除则用git rm a.txt
-git commit -m "删除说明"	
+git rm -r --cached 文件名/路径   删除文件   使用-r参数删除目录, git rm --cached a.txt 删除的是本地仓库中的文件，且本地工作的文件会保留且不再与远程仓库发生跟踪关系，如果本地仓库中的文件也要删除则用git rm a.txt
+git commit -m "删除说明"    
 
-git reset --mixed	撤销前一步的暂存
+git branch -a   查看当前分支
+git branch -d 分支名   删除对应本地分支（注意当前指针*head不能在该分支，不然失败）
+git push origin --delete 分支名    删远程该分支
+
+git rebase -i " 自己的HEAD" 
+
+git reset commitId，(注：不要带--hard)到上个版本
+
+#假如你只是想修改上次提交的代码，做一次更完美的commit
+git stash，暂存修改
+git push --force, 强制push,远程的最新的一次commit被删除
+git stash pop，释放暂存的修改，开始修改代码
+git add . -> git commit -m "massage" -> git push
 
 
-git status	显示当前状态（如有无变更及需要提交更新的）
-git log  <--pretty=oneline>	查看提交历史。加后面的标志就只显示最重要的ID和备注
-	（git log不带参数，直接日志形式，按q退出；
-	其他搜索：
-	git log --author 某某
-	git log --grep 关键字
-	git log -p -- 完整文件名
-	）
-git checkout .		撤销最后一次提交后的所有修改，相当于撤回到最近一次的提交快照
-git checkout <引用 ID 的前 6 个字符（而不是句点）>		检出以前的提交，相当于退回某一版本（未保存的分离状态）
-git checkout master		回到master主分支
-git checkout -b <新分支名>		新建分支（一般配合检出实验性修改使用）
-git reset --hard <引用ID前6>		确定跳转到某一提交状态（该状态后的就没了）
-rm -rf .git			删除整个库.git（只是提交的快照没了，不影响当前状态。在 Windows 系统中，应使用命令 rmdir /s .git ）
+git reset --mixed   撤销前一步的暂存
+git reset --hard HEAD~N	删除本地最后提交的N条记录
 
-git update-index --no-assume-unchanged /path/to/file	#git 取消忽略；反之，删掉no，即可
-touch .gitignore	可新建.gitignore，再将文件名加入复制进去
+
+git status  显示当前状态（如有无变更及需要提交更新的）
+git log  <--pretty=oneline> 查看提交历史。加后面的标志就只显示最重要的ID和备注
+    （git log不带参数，直接日志形式，按q退出；
+    git log --graph 图形化显示提交记录（多分支情况优势常用）
+    其他搜索：
+    git log --author 某某
+    git log --grep 关键字
+    git log -p -- 完整文件名
+    ）
+git checkout .      撤销最后一次提交后的所有修改，相当于撤回到最近一次的提交快照
+git checkout <引用 ID 的前 6 个字符（而不是句点）>        检出以前的提交，相当于退回某一版本（未保存的分离状态）
+git checkout master     回到master主分支
+git checkout -b <新分支名>      新建分支并切换到新分支（一般配合检出实验性修改使用）
+git reset --hard <引用ID前6>       确定跳转到某一提交状态（该状态后的就没了）
+rm -rf .git         删除整个库.git（只是提交的快照没了，不影响当前状态。在 Windows 系统中，应使用命令 rmdir /s .git ）
+
+git update-index --no-assume-unchanged /path/to/file    #git 取消忽略；反之，删掉no，即可
+touch .gitignore    可新建.gitignore，再将文件名加入复制进去
 
 
 
 红色[删除]和绿色[新增]部分
-git pull origin master		# git push <远程主机名> <本地分支名>:<远程分支名>    例：git push origin master:master
-git push -u origin master		由于新建的远程仓库是空的，所以要加上-u这个参数，同时指定origin为默认主机（后面命令就可以省略主机名）；origin是本地库的别名（代替xxx.git的地址）；master是(分)支名
+git pull origin master      # git push <远程主机名> <本地分支名>:<远程分支名>    例：git push origin master:master
+git push -u origin master       由于新建的远程仓库是空的，所以要加上-u这个参数，同时指定origin为默认主机（后面命令就可以省略主机名）；origin是本地库的别名（代替xxx.git的地址）；master是(分)支名
 
-git fetch	仅仅获取远程仓库的更新内容，并不会自动做合并
-git merge	合并存储区的更新   git fetch  +  git merge  =  git pull  拆分相对安全，减少误操作的可能
+#合并
+git fetch   仅仅获取远程仓库的更新内容，并不会自动做合并
+git merge   合并存储区的更新   git fetch  +  git merge  =  git pull  拆分相对安全，减少误操作的可能
 
 git checkout master  # 选择or切换到master分支
-git merge dev        # 将dev分支合并到当前分支(master)中
+git merge dev        # 将dev分支合并 到 当前分支(*master)中
 
-git config --global core.quotepath false	# 不对0x80以上的字符进行quote (git 默认中文文件名 \xxx\xxx 等八进制形式,显示在shell中不方便看)
+git config --global core.quotepath false    # 不对0x80以上的字符进行quote (git 默认中文文件名 \xxx\xxx 等八进制形式,显示在shell中不方便看)
 
 
 
@@ -507,43 +527,43 @@ tar -zxvf VMwaretools-10.2.5-8068393.tar.gz
 cd VMware-tools-distrib
      sudo ./VMware-install.pl
 
-ps -aux	查看所有进程，全面（user、PID、%CPU、%MEM、vsz、RSS、ttv、stat、start、time、command）
-ps -A	查看当前所有进程，精简（PID、TTY、time、cmd）
-ps -A | grep <关键词>	筛选特定的
+ps -aux 查看所有进程，全面（user、PID、%CPU、%MEM、vsz、RSS、ttv、stat、start、time、command）
+ps -A   查看当前所有进程，精简（PID、TTY、time、cmd）
+ps -A | grep <关键词>  筛选特定的
 
 结束占用进程
 ps -e | grep apt           //查看apt进程
-sudo kill -9 <PID>	强制结束该🆔id进程
+sudo kill -9 <PID>  强制结束该🆔id进程
   如果资源锁被占用之后，需要使用下列命令恢复。
 sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock
 
 
-ps --help a	ps命令支持的参数列表
-sudo kill <PID>	结束编号多少是进程（<PID>是个数字）
-sudo kill -9 <PID>	强制结束该🆔id进程
+ps --help a ps命令支持的参数列表
+sudo kill <PID> 结束编号多少是进程（<PID>是个数字）
+sudo kill -9 <PID>  强制结束该🆔id进程
 sudo killall <command中的关键词吧>
 
-sudo passwd root	获取权限（重设密码）
-su			获取后进入root权限
-sudo passwd -| root	退出权限
+sudo passwd root    获取权限（重设密码）
+su          获取后进入root权限
+sudo passwd -| root 退出权限
 
 ubuntu有以下方式切换到root身份。
-sudo+命令	输入当前用户密码后以root权限执行命令，有时间限制且仅限当前命令。
-sudo -i		输入当前用户密码后以root权限登录shell，无时间限制。使用exit或logout退出。
-su		输入root账户的密码后切换到root身份，无时间限制。su 用户名切换回其它用户。
-sudo su		效果同su，只是不需要root的密码，而需要当前用户的密码。
+sudo+命令 输入当前用户密码后以root权限执行命令，有时间限制且仅限当前命令。
+sudo -i     输入当前用户密码后以root权限登录shell，无时间限制。使用exit或logout退出。
+su      输入root账户的密码后切换到root身份，无时间限制。su 用户名切换回其它用户。
+sudo su     效果同su，只是不需要root的密码，而需要当前用户的密码。
 
 
 
-apt-get install <软件名>	安装软件
-systemd-analyze blame	从大到小列出来系统启动时候的服务以及服务所占用的时间
-sudo systemctl disable <程序名>	关闭对应程序（需重启生效）
+apt-get install <软件名>   安装软件
+systemd-analyze blame   从大到小列出来系统启动时候的服务以及服务所占用的时间
+sudo systemctl disable <程序名>    关闭对应程序（需重启生效）
 
 
 
 echo命令
-echo [字符串 | $变量]		echo 字符串 直接输出字符串；echo $SHELL 输出/bin/bash  （为shell的值|路径
+echo [字符串 | $变量]        echo 字符串 直接输出字符串；echo $SHELL 输出/bin/bash  （为shell的值|路径
 
 
 递归——典型问题： 梵塔问题（汉诺塔问题）
@@ -569,12 +589,12 @@ sudo gedit /etc/default/grub
 系统启动项-添加内核启动参数，默认quiet splash
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 updata开机方式
-sudo update-grub	更新下这个代码（猜测是确定覆盖原有固件中
+sudo update-grub    更新下这个代码（猜测是确定覆盖原有固件中
 
 启动自建Gnome失败
 https://blog.csdn.net/qq_28612967/article/details/102838894
-df -h	挂载点是100%，需要清理一下
-sudo apt autoremove --purge snapd 	会安装一个60M左右，然后手动重启
+df -h   挂载点是100%，需要清理一下
+sudo apt autoremove --purge snapd   会安装一个60M左右，然后手动重启
 
 
 常用命令及技巧编辑
